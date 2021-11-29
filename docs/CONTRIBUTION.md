@@ -1,6 +1,7 @@
 # Contribution (Version Control)
 
 For now, we use classic version control workflow - _push everything to master branch_.
+
 In the future, we will utilize [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) workflow with minor additions.\
 &nbsp;
 
