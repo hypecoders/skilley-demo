@@ -1,16 +1,19 @@
-import { Container, CssBaseline } from '@mui/material';
+import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import GlobalNavbar from './components/GlobalNavbar';
 import Router from './components/Router';
+import AppBar from './components/global-navbar/AppBar';
+import theme from './utils/theme';
+
+import '@fontsource/assistant/700.css';
+import '@fontsource/outfit/400.css';
 
 const App = () => (
 	<BrowserRouter>
-		<CssBaseline />
-		<GlobalNavbar />
-		<Container>
+		<ChakraProvider theme={theme}>
+			<AppBar />
 			<Router />
-		</Container>
+		</ChakraProvider>
 	</BrowserRouter>
 );
 

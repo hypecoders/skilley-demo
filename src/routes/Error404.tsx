@@ -1,10 +1,3 @@
-import { Typography } from '@mui/material';
-
-const Error404 = () => (
-	<div>
-		<Typography variant="h1">404</Typography>
-		<Typography>Page not found.</Typography>
-	</div>
-);
+const Error404 = () => <p>404 | Not Found</p>;
 
 export default Error404;
