@@ -24,7 +24,7 @@ const AppBar = () => {
 				color={useColorModeValue('gray.600', 'white')}
 				minH="60px"
 				py={{ base: 2 }}
-				px={{ base: 4 }}
+				px={{ base: 4, md: 20 }}
 				borderBottom={1}
 				borderStyle="solid"
 				borderColor={useColorModeValue('gray.200', 'gray.900')}
@@ -47,7 +47,12 @@ const AppBar = () => {
 
 				<Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
 					<Logo />
-					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+					<Flex
+						flex={{ base: 1 }}
+						justify={{ md: 'center' }}
+						display={{ base: 'none', md: 'flex' }}
+						ml={10}
+					>
 						<DesktopNav />
 					</Flex>
 				</Flex>
