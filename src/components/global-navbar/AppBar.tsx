@@ -1,38 +1,38 @@
 import {
 	Box,
 	Flex,
-	IconButton,
+	// IconButton,
 	Button,
 	Stack,
-	Collapse,
-	useColorModeValue,
-	useDisclosure
+	// Collapse,
+	useColorModeValue
+	// useDisclosure
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+// import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import colors from '../../utils/theme/colors';
 
 import Logo from './Logo';
-import MobileNav from './MobileNav';
-import DesktopNav from './DesktopNav';
+// import MobileNav from './MobileNav';
+// import DesktopNav from './DesktopNav';
 
-const AppBar = () => {
-	const { isOpen, onToggle } = useDisclosure();
+//TODO: remove commented components
+const AppBar = () => (
+	// const { isOpen, onToggle } = useDisclosure();
 
-	return (
-		<Box zIndex={99} top={0} position="fixed" width="100%">
-			<Flex
-				bg={useColorModeValue('white', 'gray.800')}
-				color={useColorModeValue('gray.600', 'white')}
-				minH="60px"
-				py={{ base: 2 }}
-				px={{ base: 4, md: 20 }}
-				borderBottom={1}
-				borderStyle="solid"
-				borderColor={useColorModeValue('gray.200', 'gray.900')}
-				align="center"
-			>
-				<Flex
+	<Box zIndex={99} top={0} position="fixed" width="100%">
+		<Flex
+			bg={useColorModeValue('white', 'gray.800')}
+			color={useColorModeValue('gray.600', 'white')}
+			minH="60px"
+			py={{ base: 2 }}
+			px={{ base: 4, md: 20 }}
+			borderBottom={1}
+			borderStyle="solid"
+			borderColor={useColorModeValue('gray.200', 'gray.900')}
+			align="center"
+		>
+			{/* <Flex
 					flex={{ base: 1, md: 'auto' }}
 					ml={{ base: -2 }}
 					display={{ base: 'flex', md: 'none' }}
@@ -45,50 +45,48 @@ const AppBar = () => {
 						variant="ghost"
 						aria-label="Toggle Navigation"
 					/>
-				</Flex>
+				</Flex> */}
 
-				<Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-					<Logo />
-					<Flex
+			<Flex flex={{ base: 1 }} justify={{ base: 'start', md: 'start' }}>
+				<Logo />
+				{/* <Flex
 						flex={{ base: 1 }}
 						justify={{ md: 'center' }}
 						display={{ base: 'none', md: 'flex' }}
 						ml={10}
 					>
 						<DesktopNav />
-					</Flex>
-				</Flex>
-
-				<Stack
-					flex={{ base: 1, md: 0 }}
-					justify="flex-end"
-					direction="row"
-					spacing={6}
-				>
-					<Button as="a" fontSize="sm" fontWeight={400} variant="link" href="#">
-						Sign In
-					</Button>
-					<Button
-						display={{ base: 'none', md: 'inline-flex' }}
-						fontSize="sm"
-						fontWeight={600}
-						color="white"
-						bg={colors.brand[300]}
-						href="#"
-						_hover={{
-							bg: colors.brand[200]
-						}}
-					>
-						Sign Up
-					</Button>
-				</Stack>
+					</Flex> */}
 			</Flex>
 
-			<Collapse in={isOpen} animateOpacity>
-				<MobileNav />
-			</Collapse>
-		</Box>
-	);
-};
+			<Stack
+				flex={{ base: 1, md: 0 }}
+				justify="flex-end"
+				direction="row"
+				spacing={6}
+			>
+				<Button as="a" fontSize="sm" fontWeight={400} variant="link" href="#">
+					Sign In
+				</Button>
+				<Button
+					display={{ base: 'none', md: 'inline-flex' }}
+					fontSize="sm"
+					fontWeight={600}
+					color="white"
+					bg={colors.brand[300]}
+					href="#"
+					_hover={{
+						bg: colors.brand[200]
+					}}
+				>
+					Sign Up
+				</Button>
+			</Stack>
+		</Flex>
 
+		{/* <Collapse in={isOpen} animateOpacity>
+				<MobileNav />
+			</Collapse> */}
+	</Box>
+);
 export default AppBar;

@@ -8,12 +8,13 @@ const Home = () => {
 	const { height } = useWindowDimensions();
 	return (
 		<>
-			<Container height="100vh" maxW="3xl">
+			<Container display="flex" height="100vh" maxW="3xl">
 				<Stack
 					as={Box}
 					textAlign="center"
 					spacing={{ base: 8, md: 14 }}
-					py={{ base: 20, md: 36 }}
+					justifyContent="center"
+					// py={{ base: 20, md: 36 }}
 				>
 					<Heading
 						fontWeight={600}
@@ -43,7 +44,7 @@ const Home = () => {
 						position="relative"
 					>
 						<Button
-							colorScheme="green"
+							colorScheme={colors.brand[300]}
 							bg={colors.brand[300]}
 							rounded="full"
 							px={6}
@@ -55,7 +56,7 @@ const Home = () => {
 						</Button>
 						<Button
 							onClick={() =>
-								window.scrollTo({ top: height, behavior: 'smooth' })
+								window.scrollTo({ top: height + 48, behavior: 'smooth' })
 							}
 							variant="link"
 							size="sm"
