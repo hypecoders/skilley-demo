@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
+import colors from '../../utils/theme/colors';
+
 import Logo from './Logo';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
@@ -18,7 +20,7 @@ const AppBar = () => {
 	const { isOpen, onToggle } = useDisclosure();
 
 	return (
-		<Box>
+		<Box zIndex={99} top={0} position="fixed" width="100%">
 			<Flex
 				bg={useColorModeValue('white', 'gray.800')}
 				color={useColorModeValue('gray.600', 'white')}
@@ -71,10 +73,10 @@ const AppBar = () => {
 						fontSize="sm"
 						fontWeight={600}
 						color="white"
-						bg="pink.400"
+						bg={colors.brand[300]}
 						href="#"
 						_hover={{
-							bg: 'pink.300'
+							bg: colors.brand[200]
 						}}
 					>
 						Sign Up

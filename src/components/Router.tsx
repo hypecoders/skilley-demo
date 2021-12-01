@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/layout';
 import { Route, Routes } from 'react-router-dom';
 
 import Error404 from '../routes/Error404';
@@ -9,7 +9,7 @@ import Pool from '../routes/Pool';
 import Pricing from '../routes/Pricing';
 
 const Router = () => (
-	<Flex px={{ base: 4, md: 20 }}>
+	<Box px={{ base: 4, md: 20 }}>
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="pool" element={<Pool />} />
@@ -20,7 +20,7 @@ const Router = () => (
 			</Route>
 			<Route path="*" element={<Error404 />} />
 		</Routes>
-	</Flex>
+	</Box>
 );
 
 export default Router;
