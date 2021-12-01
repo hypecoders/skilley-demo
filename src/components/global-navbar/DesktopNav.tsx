@@ -11,6 +11,7 @@ import {
 	useColorModeValue
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import { useLocation } from 'react-router-dom';
 
 import { NavItem } from '../../common/type';
 
@@ -20,9 +21,11 @@ const DesktopNav = () => {
 	const linkColor = useColorModeValue('gray.600', 'gray.200');
 	const linkHoverColor = useColorModeValue('gray.800', 'white');
 	const popoverContentBgColor = useColorModeValue('white', 'gray.800');
-
+	const location = useLocation();
+	console.log(location.pathname);
 	return (
 		<Stack direction="row" spacing={4}>
+			{location.pathname}
 			{NAV_ITEMS.map(navItem => (
 				<Box key={navItem.label}>
 					<Popover trigger="hover" placement="bottom-start">
@@ -33,8 +36,14 @@ const DesktopNav = () => {
 								fontSize="sm"
 								fontWeight={500}
 								color={linkColor}
+								textDecoration={
+									location.pathname === `/${navItem.label.toLowerCase()}` ||
+									(location.pathname === '/' && navItem.label === 'Home')
+										? 'underline'
+										: 'none'
+								}
 								_hover={{
-									textDecoration: 'none',
+									textDecoration: 'underline',
 									color: linkHoverColor
 								}}
 							>

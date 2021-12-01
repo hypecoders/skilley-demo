@@ -10,6 +10,8 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
+import colors from '../../utils/theme/colors';
+
 import Logo from './Logo';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
@@ -18,13 +20,13 @@ const AppBar = () => {
 	const { isOpen, onToggle } = useDisclosure();
 
 	return (
-		<Box>
+		<Box zIndex={99} top={0} position="fixed" width="100%">
 			<Flex
 				bg={useColorModeValue('white', 'gray.800')}
 				color={useColorModeValue('gray.600', 'white')}
 				minH="60px"
 				py={{ base: 2 }}
-				px={{ base: 4 }}
+				px={{ base: 4, md: 20 }}
 				borderBottom={1}
 				borderStyle="solid"
 				borderColor={useColorModeValue('gray.200', 'gray.900')}
@@ -47,7 +49,12 @@ const AppBar = () => {
 
 				<Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
 					<Logo />
-					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+					<Flex
+						flex={{ base: 1 }}
+						justify={{ md: 'center' }}
+						display={{ base: 'none', md: 'flex' }}
+						ml={10}
+					>
 						<DesktopNav />
 					</Flex>
 				</Flex>
@@ -66,10 +73,10 @@ const AppBar = () => {
 						fontSize="sm"
 						fontWeight={600}
 						color="white"
-						bg="pink.400"
+						bg={colors.brand[300]}
 						href="#"
 						_hover={{
-							bg: 'pink.300'
+							bg: colors.brand[200]
 						}}
 					>
 						Sign Up
