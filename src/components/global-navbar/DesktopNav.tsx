@@ -11,7 +11,7 @@ import {
 	useColorModeValue
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link as RouterLink } from 'react-router-dom';
 
 import { NavItem } from '../../common/type';
 
@@ -31,8 +31,9 @@ const DesktopNav = () => {
 					<Popover trigger="hover" placement="bottom-start">
 						<PopoverTrigger>
 							<Link
+								as={RouterLink}
 								p={2}
-								href={navItem.href ?? '#'}
+								to={navItem.href ?? '#'}
 								fontSize="sm"
 								fontWeight={500}
 								color={linkColor}
