@@ -2287,6 +2287,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/outfit/-/outfit-4.5.0.tgz#3e262007bbe58192f0e30896145578898f148716"
   integrity sha512-H2Z8Z8WNKl4DkDlwjOTGJsPM8SueXjSmAXHP2Ex6NEXcz/TtZ2pWkcKbT2K6BV2V16a0ZeddM/X3cFOnm+br9Q==
 
+"@fontsource/overpass-mono@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/overpass-mono/-/overpass-mono-4.5.1.tgz#f236cee4bb46ec6ff5ca46ee5a86872f9e370383"
+  integrity sha512-Tx1hmh6YF6Y+wiZfhIMFOGcpdiVHgovMn1LDgwFCA6h/0++91vE7s8rEH8uHMKzOlW/AShqxgYzsGzt9jvXMfA==
+
 "@gar/promisify@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"

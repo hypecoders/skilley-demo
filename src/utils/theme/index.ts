@@ -5,8 +5,8 @@ import components from './components';
 
 const theme = extendTheme({
 	fonts: {
-		heading: `Assistant ${base.fonts?.heading}`,
-		body: `Outfit ${base.fonts?.body}`
+		heading: `Outfit, ${base.fonts?.heading}`,
+		body: `Assistant, ${base.fonts?.body}`
 	},
 	colors,
 	components

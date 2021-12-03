@@ -13,7 +13,7 @@ import { ReactNode } from 'react';
 
 import colors from '../utils/theme/colors';
 
-import Logo from './global-navbar/Logo';
+import Logo from './Logo';
 
 const SocialButton = ({
 	children,

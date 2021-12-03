@@ -9,6 +9,7 @@
     "@emotion/styled": "^11",
     "@fontsource/assistant": "^4.5.1",
     "@fontsource/outfit": "^4.5.0",
+    "@fontsource/overpass-mono": "^4.5.1",
     "firebase": "^9.5.0",
     "framer-motion": "^4",
     "react": "^17.0.2",

@@ -2,12 +2,13 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 
 import Router from './components/Router';
-import AppBar from './components/global-navbar/AppBar';
+import AppBar from './components/AppBar';
 import theme from './utils/theme';
 import Footer from './components/Footer';
 
-import '@fontsource/assistant/700.css';
-import '@fontsource/outfit/400.css';
+import '@fontsource/assistant';
+import '@fontsource/outfit';
+import '@fontsource/overpass-mono';
 
 const App = () => (
 	<BrowserRouter>
