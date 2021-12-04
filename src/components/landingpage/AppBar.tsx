@@ -1,7 +1,7 @@
 import { Box, Flex, Button, useDisclosure } from '@chakra-ui/react';
 
-import RegisterModal from './auth/RegisterModal';
-import Logo from './Logo';
+import RegisterModal from '../auth/RegisterModal';
+import Logo from '../Logo';
 
 const AppBar = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
