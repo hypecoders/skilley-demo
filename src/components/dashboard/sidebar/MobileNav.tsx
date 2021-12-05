@@ -118,6 +118,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 							<MenuItem>Profile</MenuItem>
 							<MenuItem>Settings</MenuItem>
 							<MenuDivider />
+							<MenuItem onClick={() => navigate('/')}>To home page</MenuItem>
 							<MenuItem onClick={onSignOut}>Sign out</MenuItem>
 						</MenuList>
 					</Menu>
