@@ -1,5 +1,6 @@
 import {
 	Heading,
+	Text,
 	Modal,
 	ModalBody,
 	ModalContent,
@@ -19,19 +20,8 @@ const LoginModal = () => {
 
 	return (
 		<>
-			<Button
-				ml={10}
-				onClick={onOpen}
-				display={{ base: 'none', md: 'inline-flex' }}
-				fontSize="sm"
-				fontWeight={600}
-				color="white"
-				bg="brand.500"
-				_hover={{
-					bg: 'brand.300'
-				}}
-			>
-				Login
+			<Button onClick={onOpen} variant="link" color="brand.500">
+				Sign In
 			</Button>
 
 			<Modal
@@ -39,19 +29,22 @@ const LoginModal = () => {
 				onClose={onClose}
 				isOpen={isOpen}
 				motionPreset="slideInRight"
-				size="xl"
+				size="md"
 				scrollBehavior="inside"
 			>
 				<ModalOverlay />
 				<ModalContent mx={{ base: 5, md: 0 }}>
-					<VStack spacing={8} py={{ base: 8, md: 10 }}>
+					<VStack spacing={8} py={10}>
 						<VStack textAlign="center">
-							<Heading fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }}>
-								Log in
+							<Heading fontSize={{ base: '2xl', md: '4xl' }}>
+								Sign in to your account
 							</Heading>
+							<Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600">
+								to enjoy all of our cool features ✌️
+							</Text>
 						</VStack>
 					</VStack>
-					<ModalCloseButton display={{ base: 'block', md: 'none' }} />
+					<ModalCloseButton />
 					<ModalBody>
 						<LoginController toast={toast} onClose={onClose} />
 					</ModalBody>

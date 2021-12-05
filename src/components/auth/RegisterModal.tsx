@@ -20,9 +20,10 @@ const RegisterModal = () => {
 
 	return (
 		<>
-			<Button onClick={onOpen} variant="link" color="brand.500">
+			<Button onClick={onOpen} variant="primary">
 				Create Account
 			</Button>
+
 			<Modal
 				isCentered
 				onClose={onClose}
@@ -33,9 +34,9 @@ const RegisterModal = () => {
 			>
 				<ModalOverlay />
 				<ModalContent mx={{ base: 5, md: 0 }}>
-					<VStack spacing={8} py={{ base: 8, md: 10 }}>
+					<VStack spacing={8} py={10}>
 						<VStack textAlign="center">
-							<Heading fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }}>
+							<Heading fontSize={{ base: '2xl', md: '4xl' }}>
 								Create your account
 							</Heading>
 							<Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600">
@@ -43,7 +44,7 @@ const RegisterModal = () => {
 							</Text>
 						</VStack>
 					</VStack>
-					<ModalCloseButton display={{ base: 'block', md: 'none' }} />
+					<ModalCloseButton />
 					<ModalBody>
 						<RegisterController toast={toast} onClose={onClose} />
 					</ModalBody>

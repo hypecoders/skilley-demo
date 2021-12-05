@@ -7,13 +7,15 @@ import {
 	onAuthStateChanged,
 	User
 } from 'firebase/auth';
-// import {
-// 	collection,
-// 	CollectionReference,
-// 	doc,
-// 	DocumentReference,
-// 	getFirestore
-// } from 'firebase/firestore';
+import {
+	// collection,
+	// CollectionReference,
+	doc,
+	DocumentReference,
+	getFirestore
+} from 'firebase/firestore';
+
+import { UserData } from '../common/db';
 
 initializeApp({
 	apiKey: 'AIzaSyAnL_jqyP95HUVN43L5rwGtjmUV3NGfhQg',
@@ -24,9 +26,7 @@ initializeApp({
 	appId: '1:393123766788:web:18f79565d1f04059d50b51'
 });
 
-/**
- * AUTHENTICATION
- */
+/* AUTHENTICATION */
 
 const auth = getAuth();
 
@@ -45,8 +45,9 @@ export const signOut = () => authSignOut(auth);
 export const onAuthChanged = (callback: (u: User | null) => void) =>
 	onAuthStateChanged(auth, callback);
 
-/**
- * FIRESTORE
- */
+/* FIRESTORE */
 
-// const db = getFirestore();
+const db = getFirestore();
+
+export const usersDataDoc = (uid: string) =>
+	doc(db, 'usersData', uid) as DocumentReference<UserData>;

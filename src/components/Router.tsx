@@ -6,11 +6,11 @@ import Home from '../routes/Home';
 import Invoice from '../routes/Invoice';
 import Invoices from '../routes/Invoices';
 import Pool from '../routes/Pool';
-import Pricing from '../routes/Pricing';
-import ProtectedApp from '../routes/ProtectedApp';
+import Leaderboard from '../routes/Leaderboard';
+import ProtectedRoute from '../routes/ProtectedRoute';
 
-import AppBar from './landingpage/AppBar';
-import Footer from './landingpage/Footer';
+import AppBar from './landing-page/AppBar';
+import Footer from './landing-page/Footer';
 
 const Router = () => (
 	<Routes>
@@ -25,7 +25,7 @@ const Router = () => (
 			}
 		/>
 		<Route path="pool" element={<Pool />} />
-		<Route path="pricing" element={<Pricing />} />
+		<Route path="leaderboard" element={<Leaderboard />} />
 		<Route path="invoices" element={<Invoices />}>
 			<Route index element={<p>Select an invoice</p>} />
 			<Route path=":invoiceId" element={<Invoice />} />
@@ -33,11 +33,20 @@ const Router = () => (
 		<Route path="app">
 			<Route
 				path="dashboard"
-				element={<ProtectedApp child={<Dashboard />} />}
+				element={<ProtectedRoute child={<Dashboard />} />}
 			/>
-			<Route path="trending" element={<ProtectedApp child={<Dashboard />} />} />
-			<Route path="explore" element={<ProtectedApp child={<Dashboard />} />} />
-			<Route path="mytests" element={<ProtectedApp child={<Dashboard />} />} />
+			<Route
+				path="trending"
+				element={<ProtectedRoute child={<Dashboard />} />}
+			/>
+			<Route
+				path="explore"
+				element={<ProtectedRoute child={<Dashboard />} />}
+			/>
+			<Route
+				path="mytests"
+				element={<ProtectedRoute child={<Dashboard />} />}
+			/>
 		</Route>
 		<Route path="*" element={<Error404 />} />
 	</Routes>

@@ -1,7 +1,5 @@
-import { Button } from '@chakra-ui/button';
 import { GridItem, SimpleGrid } from '@chakra-ui/layout';
 import { useBreakpointValue } from '@chakra-ui/media-query';
-import { Text } from '@chakra-ui/react';
 import { Form } from 'formik';
 import {
 	CheckboxContainer,
@@ -90,24 +88,10 @@ const RegisterForm = () => {
 				</GridItem>
 
 				{/* Sign Up Button */}
-				<GridItem colSpan={2} mt={4}>
+				<GridItem colSpan={2} my={4}>
 					<SubmitButton variant="primary" size={buttonSize} w="full">
 						Sign Up
 					</SubmitButton>
-				</GridItem>
-
-				{/* Account created? Button */}
-				<GridItem colSpan={2} mb={4}>
-					<Text align="center" fontSize={{ base: 'sm', md: 'md' }}>
-						Already a user?{' '}
-						<Button
-							variant="link"
-							color="brand.500"
-							fontSize={{ base: 'sm', md: 'md' }}
-						>
-							Login
-						</Button>
-					</Text>
 				</GridItem>
 			</SimpleGrid>
 		</Form>

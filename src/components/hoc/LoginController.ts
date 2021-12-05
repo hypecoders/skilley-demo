@@ -1,13 +1,10 @@
 import { UseToastOptions } from '@chakra-ui/toast';
 import { withFormik } from 'formik';
 
-import { LoginDefaults } from '../../common/defaults';
+import { LoginDefaults, toastProps } from '../../common/defaults';
 import { LoginModel } from '../../common/models';
 import { LoginSchema } from '../../common/validations';
-import {
-	FirebaseErrorCode,
-	useFirebaseError
-} from '../../hooks/useFirebaseError';
+import { FBErrorCode, useFirebaseError } from '../../hooks/useFirebaseError';
 import { signIn } from '../../utils/firebase';
 import LoginForm from '../auth/LoginForm';
 
@@ -30,25 +27,22 @@ export const LoginController = withFormik<Props, LoginModel>({
 		try {
 			await signIn(email, password);
 			toast({
-				title: 'Logged in',
+				title: 'Logged in.',
+				description: 'Happy hacking! ❤️',
 				status: 'success',
-				position: 'bottom-left',
-				duration: 4000,
-				isClosable: true
+				...toastProps
 			});
 			setSubmitting(false);
 			onClose();
 		} catch (err) {
-			const fbErr = useFirebaseError();
+			const fbe = useFirebaseError();
 			toast({
-				title: 'Logging in failed.',
-				description: fbErr(
-					(err as { code?: FirebaseErrorCode })?.code ?? 'unknown_error'
-				),
+				title: 'Fail.',
+				description:
+					fbe((err as { code?: FBErrorCode })?.code ?? 'unknown_error') ??
+					fbe('unknown_error'),
 				status: 'error',
-				position: 'bottom-left',
-				duration: 4000,
-				isClosable: true
+				...toastProps
 			});
 			setSubmitting(false);
 		}

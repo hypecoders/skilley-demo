@@ -26,7 +26,7 @@ const theme = extendTheme(
 		components: ['Checkbox']
 	}),
 	withDefaultVariant({
-		variant: 'flushed',
+		variant: 'filled',
 		components: ['Input']
 	})
 );
