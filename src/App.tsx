@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 
 import '@fontsource/assistant';
 import '@fontsource/outfit';
-import '@fontsource/overpass-mono';
 
 const App = () => (
 	<BrowserRouter>

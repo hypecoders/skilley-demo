@@ -1,52 +1,54 @@
 {
-  "name": "skilley-demo",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@chakra-ui/icons": "^1.1.1",
-    "@chakra-ui/react": "^1.7.2",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "@fontsource/assistant": "^4.5.1",
-    "@fontsource/outfit": "^4.5.0",
-    "@fontsource/overpass-mono": "^4.5.1",
-    "firebase": "^9.5.0",
-    "framer-motion": "^4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-router-dom": "^6.0.2",
-    "react-scripts": "4.0.3"
-  },
-  "devDependencies": {
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.3.2",
-    "eslint-config-haaxor1689s-config": "^1.3.0",
-    "typescript": "^4.1.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint \"./src/**/*.{ts,tsx}\" && prettier \"./src/**/*.{ts,tsx}\" --check"
-  },
-  "eslintConfig": {
-    "extends": "haaxor1689s-config"
-  },
-  "prettier": "prettier-config-haaxor1689s-config",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "skilley-demo",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@chakra-ui/icons": "^1.1.1",
+		"@chakra-ui/react": "^1.7.2",
+		"@emotion/react": "^11",
+		"@emotion/styled": "^11",
+		"@fontsource/assistant": "^4.5.1",
+		"@fontsource/outfit": "^4.5.0",
+		"firebase": "^9.5.0",
+		"formik": "^2.2.9",
+		"formik-chakra-ui": "^1.5.0",
+		"framer-motion": "^4",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-icons": "^4.3.1",
+		"react-router-dom": "^6.0.2",
+		"react-scripts": "4.0.3",
+		"yup": "^0.32.11"
+	},
+	"devDependencies": {
+		"@types/node": "^12.0.0",
+		"@types/react": "^17.0.0",
+		"@types/react-dom": "^17.0.0",
+		"@types/react-router-dom": "^5.3.2",
+		"eslint-config-haaxor1689s-config": "^1.3.0",
+		"typescript": "^4.1.2"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"lint": "eslint \"./src/**/*.{ts,tsx}\" && prettier \"./src/**/*.{ts,tsx}\" --check"
+	},
+	"eslintConfig": {
+		"extends": "haaxor1689s-config"
+	},
+	"prettier": "prettier-config-haaxor1689s-config",
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }

@@ -1,20 +1,16 @@
 import {
 	Heading,
 	Text,
-	Button,
 	Modal,
 	ModalBody,
 	ModalContent,
-	ModalFooter,
 	ModalOverlay,
 	VStack,
-	SimpleGrid,
-	GridItem,
 	ModalCloseButton,
-	useBreakpointValue
+	useToast
 } from '@chakra-ui/react';
 
-import RegisterForm from './RegisterForm';
+import { RegisterController } from '../hoc/RegisterController';
 
 type Props = {
 	isOpen: boolean;
@@ -22,7 +18,8 @@ type Props = {
 };
 
 const RegisterModal = ({ isOpen, onClose }: Props) => {
-	const buttonSize = useBreakpointValue({ base: 'md', md: 'lg' });
+	const toast = useToast();
+
 	return (
 		<Modal
 			isCentered
@@ -46,31 +43,8 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
 				</VStack>
 				<ModalCloseButton display={{ base: 'block', md: 'none' }} />
 				<ModalBody>
-					<RegisterForm />
+					<RegisterController toast={toast} onClose={onClose} />
 				</ModalBody>
-				<ModalFooter>
-					<SimpleGrid columns={2} columnGap={3} rowGap={3} w="full" my={2}>
-						{/* Sign Up Button */}
-						<GridItem colSpan={2}>
-							<Button variant="primary" size={buttonSize} w="full">
-								Sign Up
-							</Button>
-						</GridItem>
-						{/* Account created? Button */}
-						<GridItem colSpan={2}>
-							<Text align="center" fontSize={{ base: 'sm', md: 'md' }}>
-								Already a user?{' '}
-								<Button
-									variant="link"
-									color="brand.500"
-									fontSize={{ base: 'sm', md: 'md' }}
-								>
-									Login
-								</Button>
-							</Text>
-						</GridItem>
-					</SimpleGrid>
-				</ModalFooter>
 			</ModalContent>
 		</Modal>
 	);
