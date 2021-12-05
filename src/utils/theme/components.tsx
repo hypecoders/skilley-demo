@@ -25,6 +25,7 @@ export const Button = {
 			}
 		},
 		link: {
+			color: 'gray.700',
 			backgroundColor: 'white',
 			_hover: {
 				textDecoration: 'underline'
@@ -48,7 +49,7 @@ export const Button = {
 
 export const Input = {
 	variants: {
-		flushed: {
+		filled: {
 			field: {
 				_focus: {
 					borderColor: 'brand.500'

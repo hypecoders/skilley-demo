@@ -1,14 +1,12 @@
 import { UseToastOptions } from '@chakra-ui/toast';
+import { setDoc } from '@firebase/firestore';
 import { withFormik } from 'formik';
 
-import { RegistrationDefaults } from '../../common/defaults';
+import { RegistrationDefaults, toastProps } from '../../common/defaults';
 import { RegistrationModel } from '../../common/models';
 import { RegistrationSchema } from '../../common/validations';
-import {
-	FirebaseErrorCode,
-	useFirebaseError
-} from '../../hooks/useFirebaseError';
-import { signUp } from '../../utils/firebase';
+import { FBErrorCode, useFirebaseError } from '../../hooks/useFirebaseError';
+import { signUp, usersDataDoc } from '../../utils/firebase';
 import RegisterForm from '../auth/RegisterForm';
 
 type Props = {
@@ -24,32 +22,37 @@ export const RegisterController = withFormik<Props, RegistrationModel>({
 	}),
 	validationSchema: RegistrationSchema,
 	handleSubmit: async (
-		{ email, password, onClose, toast },
+		{ firstName, lastName, locations, email, password, onClose, toast },
 		{ setSubmitting }
 	) => {
 		try {
-			await signUp(email, password);
+			// Register user
+			const { user } = await signUp(email, password);
+			// Save user data
+			await setDoc(usersDataDoc(user.uid), {
+				uid: user.uid,
+				firstName,
+				lastName,
+				locations
+			});
+			// Notify
 			toast({
 				title: 'Account created.',
-				description: "We've created your account for you.",
+				description: 'Happy hacking! ❤️',
 				status: 'success',
-				position: 'bottom-left',
-				duration: 4000,
-				isClosable: true
+				...toastProps
 			});
 			setSubmitting(false);
 			onClose();
 		} catch (err) {
-			const fbErr = useFirebaseError();
+			const fbe = useFirebaseError();
 			toast({
-				title: 'Registration failed.',
-				description: fbErr(
-					(err as { code?: FirebaseErrorCode })?.code ?? 'unknown_error'
-				),
+				title: 'Fail.',
+				description:
+					fbe((err as { code?: FBErrorCode })?.code ?? 'unknown_error') ??
+					fbe('unknown_error'),
 				status: 'error',
-				position: 'bottom-left',
-				duration: 4000,
-				isClosable: true
+				...toastProps
 			});
 			setSubmitting(false);
 		}

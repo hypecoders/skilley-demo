@@ -7,7 +7,7 @@ type Props = {
 	child: JSX.Element | JSX.Element[];
 };
 
-const ProtectedApp = ({ child }: Props) => {
+const ProtectedRoute = ({ child }: Props) => {
 	const location = useLocation();
 	const user = useLoggedInUser();
 
@@ -18,4 +18,4 @@ const ProtectedApp = ({ child }: Props) => {
 	return <SideMenu>{child}</SideMenu>;
 };
 
-export default ProtectedApp;
+export default ProtectedRoute;

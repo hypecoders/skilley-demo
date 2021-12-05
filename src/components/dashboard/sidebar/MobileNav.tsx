@@ -18,6 +18,7 @@ import {
 import { FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
+import { toastProps } from '../../../common/defaults';
 import useLoggedInUser from '../../../hooks/useLoggedInUser';
 import { signOut } from '../../../utils/firebase';
 import Logo from '../../Logo';
@@ -35,11 +36,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 		navigate('/');
 		signOut();
 		toast({
-			title: 'Logged out',
+			title: 'Logged out.',
 			status: 'success',
-			position: 'bottom-left',
-			duration: 4000,
-			isClosable: true
+			...toastProps
 		});
 	};
 

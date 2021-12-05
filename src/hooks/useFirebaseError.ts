@@ -1,6 +1,6 @@
 import firebaseErrorCodes from '../common/firebaseErrorCodes';
 
-export type FirebaseErrorCode = keyof typeof firebaseErrorCodes;
+export type FBErrorCode = keyof typeof firebaseErrorCodes;
 
-export const useFirebaseError = () => (key: FirebaseErrorCode) =>
+export const useFirebaseError = () => (key: FBErrorCode) =>
 	firebaseErrorCodes[key];

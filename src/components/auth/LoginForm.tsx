@@ -1,5 +1,6 @@
 import { GridItem, SimpleGrid } from '@chakra-ui/layout';
 import { useBreakpointValue } from '@chakra-ui/media-query';
+import { Button, Checkbox, Stack } from '@chakra-ui/react';
 import { Form } from 'formik';
 import { InputControl, SubmitButton } from 'formik-chakra-ui';
 
@@ -32,10 +33,27 @@ const LoginForm = () => {
 					/>
 				</GridItem>
 
+				{/* Remember Me & Forgot pass? */}
+				<GridItem colSpan={2}>
+					<Stack justify="space-between" direction={['column', 'row']}>
+						<Checkbox checked isDisabled>
+							Remember me
+						</Checkbox>
+						<Button
+							alignSelf="start"
+							variant="link"
+							color="brand.500"
+							pt={[3, 0]}
+						>
+							Forgot password?
+						</Button>
+					</Stack>
+				</GridItem>
+
 				{/* Log in Button */}
-				<GridItem colSpan={2} mt={4}>
+				<GridItem colSpan={2} my={4}>
 					<SubmitButton variant="primary" size={buttonSize} w="full">
-						Log in
+						Sign In
 					</SubmitButton>
 				</GridItem>
 			</SimpleGrid>

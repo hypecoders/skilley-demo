@@ -1,3 +1,5 @@
+import { UseToastOptions } from '@chakra-ui/toast';
+
 export const RegistrationDefaults = {
 	firstName: '',
 	lastName: '',
@@ -13,3 +15,9 @@ export const LoginDefaults = {
 };
 
 export const errorMessageProps = { fontWeight: '600', fontSize: 'xs' };
+
+export const toastProps: UseToastOptions = {
+	position: 'bottom-left',
+	duration: 5000,
+	isClosable: true
+};
