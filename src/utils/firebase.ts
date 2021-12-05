@@ -7,13 +7,13 @@ import {
 	onAuthStateChanged,
 	User
 } from 'firebase/auth';
-import {
-	collection,
-	CollectionReference,
-	doc,
-	DocumentReference,
-	getFirestore
-} from 'firebase/firestore';
+// import {
+// 	collection,
+// 	CollectionReference,
+// 	doc,
+// 	DocumentReference,
+// 	getFirestore
+// } from 'firebase/firestore';
 
 initializeApp({
 	apiKey: 'AIzaSyAnL_jqyP95HUVN43L5rwGtjmUV3NGfhQg',
@@ -49,4 +49,4 @@ export const onAuthChanged = (callback: (u: User | null) => void) =>
  * FIRESTORE
  */
 
-const db = getFirestore();
+// const db = getFirestore();
