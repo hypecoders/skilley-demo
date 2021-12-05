@@ -33,6 +33,7 @@ export const RegisterController = withFormik<Props, RegistrationModel>({
 				title: 'Account created.',
 				description: "We've created your account for you.",
 				status: 'success',
+				position: 'bottom-left',
 				duration: 4000,
 				isClosable: true
 			});
@@ -46,6 +47,7 @@ export const RegisterController = withFormik<Props, RegistrationModel>({
 					(err as { code?: FirebaseErrorCode })?.code ?? 'unknown_error'
 				),
 				status: 'error',
+				position: 'bottom-left',
 				duration: 4000,
 				isClosable: true
 			});

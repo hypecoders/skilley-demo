@@ -6,3 +6,5 @@ export const RegistrationDefaults = {
 	confirmPassword: '',
 	locations: []
 };
+
+export const errorMessageProps = { fontWeight: '600', fontSize: 'xs' };

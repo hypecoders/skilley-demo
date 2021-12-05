@@ -10,6 +10,7 @@ import {
 	SubmitButton
 } from 'formik-chakra-ui';
 
+import { errorMessageProps } from '../../common/defaults';
 import FormLabel from '../FormLabel';
 
 const RegisterForm = () => {
@@ -22,13 +23,21 @@ const RegisterForm = () => {
 				{/* First Name */}
 				<GridItem colSpan={colSpan}>
 					<FormLabel required>First Name</FormLabel>
-					<InputControl name="firstName" inputProps={{ placeholder: 'John' }} />
+					<InputControl
+						name="firstName"
+						{...errorMessageProps}
+						inputProps={{ placeholder: 'John' }}
+					/>
 				</GridItem>
 
 				{/* Last Name */}
 				<GridItem colSpan={colSpan}>
 					<FormLabel required>Last Name</FormLabel>
-					<InputControl name="lastName" inputProps={{ placeholder: 'Doe' }} />
+					<InputControl
+						name="lastName"
+						{...errorMessageProps}
+						inputProps={{ placeholder: 'Doe' }}
+					/>
 				</GridItem>
 
 				{/* Email */}
@@ -36,6 +45,7 @@ const RegisterForm = () => {
 					<FormLabel required>Email address</FormLabel>
 					<InputControl
 						name="email"
+						{...errorMessageProps}
 						inputProps={{ placeholder: 'johndoe@example.com' }}
 					/>
 				</GridItem>
@@ -43,7 +53,11 @@ const RegisterForm = () => {
 				{/* Password */}
 				<GridItem colSpan={2}>
 					<FormLabel required>Password</FormLabel>
-					<InputControl name="password" inputProps={{ type: 'password' }} />
+					<InputControl
+						name="password"
+						{...errorMessageProps}
+						inputProps={{ type: 'password' }}
+					/>
 				</GridItem>
 
 				{/* Confirm Password */}
@@ -51,6 +65,7 @@ const RegisterForm = () => {
 					<FormLabel required>Confirm password</FormLabel>
 					<InputControl
 						name="confirmPassword"
+						{...errorMessageProps}
 						inputProps={{ type: 'password' }}
 					/>
 				</GridItem>
