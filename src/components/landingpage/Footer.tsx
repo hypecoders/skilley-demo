@@ -11,9 +11,8 @@ import {
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ReactNode } from 'react';
 
-import colors from '../utils/theme/colors';
-
-import Logo from './Logo';
+import colors from '../../utils/theme/colors';
+import Logo from '../Logo';
 
 const SocialButton = ({
 	children,
