@@ -66,7 +66,6 @@ type SidebarProps = {
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 	const location = useLocation();
-	console.log(location);
 	return (
 		<Box
 			transition="3s ease"

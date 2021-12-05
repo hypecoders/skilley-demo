@@ -1,10 +1,15 @@
-import { Box, Flex, Button, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, Flex } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
+import useLoggedInUser from '../../hooks/useLoggedInUser';
+import LoginModal from '../auth/LoginModal';
 import RegisterModal from '../auth/RegisterModal';
 import Logo from '../Logo';
 
 const AppBar = () => {
-	const { isOpen, onOpen, onClose } = useDisclosure();
+	const user = useLoggedInUser();
+	const navigate = useNavigate();
+
 	return (
 		<Box zIndex={99} top={0} position="fixed" width="100%">
 			<Flex
@@ -19,10 +24,27 @@ const AppBar = () => {
 				justify="space-between"
 			>
 				<Logo />
-				<Button onClick={onOpen} variant="link" color="brand.500">
-					Create Account
-				</Button>
-				<RegisterModal isOpen={isOpen} onClose={onClose} />
+				{user ? (
+					<Button
+						ml={10}
+						onClick={() => navigate('/app/dashboard')}
+						display={{ base: 'none', md: 'inline-flex' }}
+						fontSize="sm"
+						fontWeight={600}
+						color="white"
+						bg="brand.500"
+						_hover={{
+							bg: 'brand.300'
+						}}
+					>
+						Go to app
+					</Button>
+				) : (
+					<Box>
+						<RegisterModal />
+						<LoginModal />
+					</Box>
+				)}
 			</Flex>
 		</Box>
 	);

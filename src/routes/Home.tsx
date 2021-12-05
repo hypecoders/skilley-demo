@@ -6,6 +6,7 @@ import colors from '../utils/theme/colors';
 
 const Home = () => {
 	const { height } = useWindowDimensions();
+
 	return (
 		<>
 			<Container display="flex" height="100vh" maxW="3xl">
