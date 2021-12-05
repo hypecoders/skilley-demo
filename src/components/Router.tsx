@@ -7,6 +7,7 @@ import Invoice from '../routes/Invoice';
 import Invoices from '../routes/Invoices';
 import Pool from '../routes/Pool';
 import Pricing from '../routes/Pricing';
+import ProtectedApp from '../routes/ProtectedApp';
 
 import AppBar from './landingpage/AppBar';
 import Footer from './landingpage/Footer';
@@ -30,10 +31,13 @@ const Router = () => (
 			<Route path=":invoiceId" element={<Invoice />} />
 		</Route>
 		<Route path="app">
-			<Route path="dashboard" element={<Dashboard />} />
-			<Route path="trending" element={<Dashboard />} />
-			<Route path="explore" element={<Dashboard />} />
-			<Route path="mytests" element={<Dashboard />} />
+			<Route
+				path="dashboard"
+				element={<ProtectedApp child={<Dashboard />} />}
+			/>
+			<Route path="trending" element={<ProtectedApp child={<Dashboard />} />} />
+			<Route path="explore" element={<ProtectedApp child={<Dashboard />} />} />
+			<Route path="mytests" element={<ProtectedApp child={<Dashboard />} />} />
 		</Route>
 		<Route path="*" element={<Error404 />} />
 	</Routes>

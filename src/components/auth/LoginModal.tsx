@@ -1,6 +1,5 @@
 import {
 	Heading,
-	Text,
 	Modal,
 	ModalBody,
 	ModalContent,
@@ -8,21 +7,33 @@ import {
 	VStack,
 	ModalCloseButton,
 	useToast,
-	useDisclosure,
-	Button
+	Button,
+	useDisclosure
 } from '@chakra-ui/react';
 
-import { RegisterController } from '../hoc/RegisterController';
+import { LoginController } from '../hoc/LoginController';
 
-const RegisterModal = () => {
+const LoginModal = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const toast = useToast();
 
 	return (
 		<>
-			<Button onClick={onOpen} variant="link" color="brand.500">
-				Create Account
+			<Button
+				ml={10}
+				onClick={onOpen}
+				display={{ base: 'none', md: 'inline-flex' }}
+				fontSize="sm"
+				fontWeight={600}
+				color="white"
+				bg="brand.500"
+				_hover={{
+					bg: 'brand.300'
+				}}
+			>
+				Login
 			</Button>
+
 			<Modal
 				isCentered
 				onClose={onClose}
@@ -36,16 +47,13 @@ const RegisterModal = () => {
 					<VStack spacing={8} py={{ base: 8, md: 10 }}>
 						<VStack textAlign="center">
 							<Heading fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }}>
-								Create your account
+								Log in
 							</Heading>
-							<Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600">
-								to enjoy all of our cool features ✌️
-							</Text>
 						</VStack>
 					</VStack>
 					<ModalCloseButton display={{ base: 'block', md: 'none' }} />
 					<ModalBody>
-						<RegisterController toast={toast} onClose={onClose} />
+						<LoginController toast={toast} onClose={onClose} />
 					</ModalBody>
 				</ModalContent>
 			</Modal>
@@ -53,4 +61,4 @@ const RegisterModal = () => {
 	);
 };
 
-export default RegisterModal;
+export default LoginModal;

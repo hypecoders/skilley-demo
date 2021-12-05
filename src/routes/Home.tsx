@@ -1,11 +1,19 @@
 import { Box, Heading, Container, Text, Button, Stack } from '@chakra-ui/react';
+import { Navigate } from 'react-router-dom';
 
+import useLoggedInUser from '../hooks/useLoggedInUser';
 import useWindowDimensions from '../hooks/windowDimensions';
 import HomeSubpage from '../modules/HomeSubpage';
 import colors from '../utils/theme/colors';
 
 const Home = () => {
 	const { height } = useWindowDimensions();
+	const user = useLoggedInUser();
+
+	if (user) {
+		return <Navigate to="/app/dashboard" state={{ from: location.pathname }} />;
+	}
+
 	return (
 		<>
 			<Container display="flex" height="100vh" maxW="3xl">

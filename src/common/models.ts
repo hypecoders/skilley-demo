@@ -10,3 +10,10 @@ export type RegistrationModel = {
 	onClose: () => void;
 	toast: (options?: UseToastOptions) => void;
 };
+
+export type LoginModel = {
+	email: string;
+	password: string;
+	onClose: () => void;
+	toast: (options?: UseToastOptions) => void;
+};
