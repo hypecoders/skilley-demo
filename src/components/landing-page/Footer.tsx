@@ -45,7 +45,7 @@ const SocialButton = ({
 );
 
 const Footer = () => (
-	<Box bg={colors.brand[300]} color="white">
+	<Box bg={colors.brand[500]} color="white">
 		<Container
 			as={Flex}
 			maxW="6xl"

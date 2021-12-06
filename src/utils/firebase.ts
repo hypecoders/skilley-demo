@@ -8,10 +8,11 @@ import {
 	User
 } from 'firebase/auth';
 import {
-	// collection,
-	// CollectionReference,
+	collection,
+	CollectionReference,
 	doc,
 	DocumentReference,
+	getDoc,
 	getFirestore
 } from 'firebase/firestore';
 
@@ -51,3 +52,10 @@ const db = getFirestore();
 
 export const usersDataDoc = (uid: string) =>
 	doc(db, 'usersData', uid) as DocumentReference<UserData>;
+
+export const usersDataCollection = collection(
+	db,
+	'usersData'
+) as CollectionReference<UserData>;
+
+export const getUserData = (id: string) => getDoc(usersDataDoc(id));

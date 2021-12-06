@@ -14,6 +14,14 @@ export const LoginDefaults = {
 	password: ''
 };
 
+export const ProfileDefaults = {
+	firstName: '',
+	lastName: '',
+	email: '',
+	locations: [],
+	skills: []
+};
+
 export const errorMessageProps = { fontWeight: '600', fontSize: 'xs' };
 
 export const toastProps: UseToastOptions = {

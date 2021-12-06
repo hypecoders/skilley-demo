@@ -43,6 +43,45 @@ export const Button = {
 			_focus: {
 				ring: 0
 			}
+		},
+		success: {
+			color: 'white',
+			backgroundColor: 'green.500',
+			_hover: {
+				backgroundColor: 'green.400'
+			},
+			_active: {
+				backgroundColor: 'green.300'
+			},
+			_focus: {
+				ring: 0
+			}
+		},
+		error: {
+			color: 'white',
+			backgroundColor: 'red.500',
+			_hover: {
+				backgroundColor: 'red.400'
+			},
+			_active: {
+				backgroundColor: 'red.300'
+			},
+			_focus: {
+				ring: 0
+			}
+		},
+		skill: {
+			maxW: 'sm',
+			color: 'gray.600',
+			borderColor: 'brand.500',
+			borderWidth: 1,
+			p: 2,
+			px: 4,
+			m: 1,
+			borderRadius: '25px',
+			_focus: {
+				ring: 0
+			}
 		}
 	}
 };

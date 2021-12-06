@@ -1419,7 +1419,7 @@
     "@chakra-ui/react-env" "1.1.1"
     "@chakra-ui/utils" "1.9.1"
 
-"@chakra-ui/menu@1.8.1":
+"@chakra-ui/menu@1.8.1", "@chakra-ui/menu@^1.8.1":
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/menu/-/menu-1.8.1.tgz#ad26e12843914747de1c36228f4f45c2be668a4d"
   integrity sha512-fgzzFukBj4sQzTRf4q/+nHiVTKhrMtJdofnluqce/SCRJ1G+bbovUySblTzfI8iFlTSZt/eWc/Nju4JB1S+3Yg==

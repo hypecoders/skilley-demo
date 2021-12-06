@@ -18,3 +18,9 @@ export const LoginSchema = Yup.object().shape({
 		.min(6, 'Password must contain at least 6 characters')
 		.required('Required')
 });
+
+export const ProfileSchema = Yup.object().shape({
+	firstName: Yup.string(),
+	lastName: Yup.string(),
+	email: Yup.string().email('Invalid email format')
+});

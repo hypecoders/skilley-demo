@@ -8,6 +8,7 @@ import Invoices from '../routes/Invoices';
 import Pool from '../routes/Pool';
 import Leaderboard from '../routes/Leaderboard';
 import ProtectedRoute from '../routes/ProtectedRoute';
+import Profile from '../routes/Profile';
 
 import AppBar from './landing-page/AppBar';
 import Footer from './landing-page/Footer';
@@ -31,6 +32,7 @@ const Router = () => (
 			<Route path=":invoiceId" element={<Invoice />} />
 		</Route>
 		<Route path="app">
+			<Route path="profile" element={<ProtectedRoute child={<Profile />} />} />
 			<Route
 				path="dashboard"
 				element={<ProtectedRoute child={<Dashboard />} />}
