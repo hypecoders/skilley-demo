@@ -5,5 +5,6 @@ export type UserData = {
 	locations: string[];
 	skills?: string[];
 	icon?: string;
+	background?: string;
 	// TODO: skills array
 };
