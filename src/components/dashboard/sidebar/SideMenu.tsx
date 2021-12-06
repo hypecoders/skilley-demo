@@ -6,7 +6,6 @@ import {
 	useColorModeValue,
 	Drawer,
 	DrawerContent,
-	Text,
 	useDisclosure,
 	BoxProps
 } from '@chakra-ui/react';
@@ -53,9 +52,7 @@ const SideMenu = ({ children }: { children?: ReactNode }) => {
 			</Drawer>
 			{/* mobilenav */}
 			<MobileNav onOpen={onOpen} />
-			<Box ml={{ base: 0, md: 60 }} p="4">
-				{children}
-			</Box>
+			<Box ml={{ base: 0, md: 60 }}>{children}</Box>
 		</Box>
 	);
 };
@@ -78,9 +75,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 			{...rest}
 		>
 			<Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-				<Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-					<Logo />
-				</Text>
+				<Logo />
 				<CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
 			</Flex>
 			{LinkItems.map(link => (

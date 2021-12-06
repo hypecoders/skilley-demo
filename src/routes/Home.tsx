@@ -44,23 +44,12 @@ const Home = () => {
 						alignSelf="center"
 						position="relative"
 					>
-						<Button
-							colorScheme={colors.brand[300]}
-							bg={colors.brand[300]}
-							rounded="full"
-							px={6}
-							_hover={{
-								bg: colors.brand[200]
-							}}
-						>
-							Get Started
-						</Button>
+						<Button variant="primary">Get Started</Button>
 						<Button
 							onClick={() =>
-								window.scrollTo({ top: height + 48, behavior: 'smooth' })
+								window.scrollTo({ top: height + height, behavior: 'smooth' })
 							}
 							variant="link"
-							size="sm"
 						>
 							Look at benefits
 						</Button>

@@ -3,5 +3,7 @@ export type UserData = {
 	firstName: string;
 	lastName: string;
 	locations: string[];
+	skills?: string[];
+	icon?: string;
 	// TODO: skills array
 };

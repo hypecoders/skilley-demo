@@ -15,12 +15,14 @@ import {
 	MenuList,
 	useToast
 } from '@chakra-ui/react';
-import { FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { FiMenu, FiChevronDown } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
+import { UserData } from '../../../common/db';
 import { toastProps } from '../../../common/defaults';
 import useLoggedInUser from '../../../hooks/useLoggedInUser';
-import { signOut } from '../../../utils/firebase';
+import { getUserData, signOut } from '../../../utils/firebase';
 import Logo from '../../Logo';
 
 type MobileProps = {
@@ -31,6 +33,20 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 	const user = useLoggedInUser();
 	const toast = useToast();
 	const navigate = useNavigate();
+
+	const [userData, setuserData] = useState<UserData>();
+
+	useEffect(() => {
+		const fetchData = async () => {
+			if (user) {
+				const userData = await getUserData(user?.uid.toString());
+				if (userData.exists()) {
+					setuserData(userData.data());
+				}
+			}
+		};
+		fetchData();
+	}, []);
 
 	const onSignOut = () => {
 		navigate('/');
@@ -62,22 +78,17 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 				icon={<FiMenu />}
 			/>
 
-			<Text
-				display={{ base: 'flex', md: 'none' }}
-				fontSize="2xl"
-				fontFamily="monospace"
-				fontWeight="bold"
-			>
+			<Box display={{ base: 'flex', md: 'none' }}>
 				<Logo />
-			</Text>
+			</Box>
 
 			<HStack spacing={{ base: '0', md: '6' }}>
-				<IconButton
+				{/* <IconButton
 					size="lg"
 					variant="ghost"
 					aria-label="open menu"
 					icon={<FiBell />}
-				/>
+				/> */}
 				<Flex alignItems="center">
 					<Menu>
 						<MenuButton
@@ -88,8 +99,10 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 							<HStack>
 								{/* user */}
 								<Avatar
+									bg="brand.300"
 									size="sm"
-									src="https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
+									name={userData?.firstName}
+									src={userData?.icon}
 								/>
 								<VStack
 									display={{ base: 'none', md: 'flex' }}
@@ -114,7 +127,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 							bg={useColorModeValue('white', 'gray.900')}
 							borderColor={useColorModeValue('gray.200', 'gray.700')}
 						>
-							<MenuItem>Profile</MenuItem>
+							<MenuItem onClick={() => navigate('/app/profile')}>
+								Profile
+							</MenuItem>
 							<MenuItem>Settings</MenuItem>
 							<MenuDivider />
 							<MenuItem onClick={() => navigate('/')}>To home page</MenuItem>

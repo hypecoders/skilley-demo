@@ -15,8 +15,6 @@ import {
 import { CheckIcon } from '@chakra-ui/icons';
 import { ReactElement } from 'react';
 
-import colors from '../utils/theme/colors';
-
 type FeatureProps = {
 	text: string;
 	iconBg: string;
@@ -104,14 +102,8 @@ const HomeSubpage = () => (
 			</SimpleGrid>
 			<Flex align="center" justify="center">
 				<Button
-					fontSize="sm"
-					fontWeight={600}
-					color="white"
-					bg={colors.brand[300]}
-					_hover={{
-						bg: colors.brand[200]
-					}}
 					onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+					variant="primary"
 				>
 					Back to top
 				</Button>
