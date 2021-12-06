@@ -43,7 +43,7 @@ const Profile = () => {
 	}
 
 	return (
-		<Flex justifyContent="center" bg="white">
+		<Flex height="100vh" justifyContent="center" bg="white">
 			<Flex align="center" flexDir="column" width="50%">
 				<Heading my={10} lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
 					User Profile
