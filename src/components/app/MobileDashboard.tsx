@@ -19,17 +19,19 @@ import { useState, useEffect } from 'react';
 import { FiMenu, FiChevronDown } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
-import { UserData } from '../../../common/db';
-import { toastProps } from '../../../common/defaults';
-import useLoggedInUser from '../../../hooks/useLoggedInUser';
-import { getUserData, signOut } from '../../../utils/firebase';
-import Logo from '../../Logo';
+import { UserData } from '../../common/db';
+import { toastProps } from '../../common/defaults';
+import useLoggedInUser from '../../hooks/useLoggedInUser';
+import { getUserData, signOut } from '../../utils/firebase';
+import Logo from '../Logo';
 
-type MobileProps = {
+type MobileNavProps = {
 	onOpen: () => void;
 } & FlexProps;
 
-const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+// TODO: destructure to components
+
+const MobileDashboard = ({ onOpen, ...rest }: MobileNavProps) => {
 	const user = useLoggedInUser();
 	const toast = useToast();
 	const navigate = useNavigate();
@@ -142,4 +144,4 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 	);
 };
 
-export default MobileNav;
+export default MobileDashboard;

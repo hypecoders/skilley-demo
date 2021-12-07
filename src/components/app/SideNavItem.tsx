@@ -1,25 +1,30 @@
 import { ReactText } from 'react';
 import { Flex, Icon, FlexProps } from '@chakra-ui/react';
-import { FiArrowLeft } from 'react-icons/fi';
+import { HiOutlineArrowLeft as ILeftArrow } from 'react-icons/hi';
 import { IconType } from 'react-icons';
 import { Link as RouterLink } from 'react-router-dom';
 
 type NavItemProps = {
 	icon: IconType;
+	href: string;
 	children: ReactText;
 	isActive: boolean;
-	path: string;
 } & FlexProps;
 
-const NavItem = ({ icon, children, isActive, path, ...rest }: NavItemProps) => (
-	<RouterLink to={path} style={{ textDecoration: 'none' }}>
+const SideNavItem = ({
+	icon,
+	href,
+	children,
+	isActive,
+	...rest
+}: NavItemProps) => (
+	<RouterLink to={href} style={{ textDecoration: 'none' }}>
 		<Flex
 			align="center"
 			p="4"
 			mx="4"
 			borderRadius="lg"
 			role="group"
-			cursor="pointer"
 			color={isActive ? 'brand.500' : ''}
 			fontWeight="bold"
 			_hover={{
@@ -28,19 +33,17 @@ const NavItem = ({ icon, children, isActive, path, ...rest }: NavItemProps) => (
 			}}
 			{...rest}
 		>
-			{icon && (
-				<Icon
-					mr="4"
-					fontSize="16"
-					_groupHover={{
-						color: 'white'
-					}}
-					as={icon}
-				/>
-			)}
+			<Icon
+				mr="4"
+				fontSize="xl"
+				_groupHover={{
+					color: 'white'
+				}}
+				as={icon}
+			/>
 			{children}
-			{isActive && <FiArrowLeft style={{ marginLeft: 20 }} />}
+			{isActive && <ILeftArrow style={{ marginLeft: 20 }} />}
 		</Flex>
 	</RouterLink>
 );
-export default NavItem;
+export default SideNavItem;

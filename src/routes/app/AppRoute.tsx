@@ -1,13 +1,13 @@
 import { Navigate, useLocation } from 'react-router-dom';
 
-import SideMenu from '../components/dashboard/sidebar/SideMenu';
-import useLoggedInUser from '../hooks/useLoggedInUser';
+import AppContent from '../../components/app/AppContent';
+import useLoggedInUser from '../../hooks/useLoggedInUser';
 
 type Props = {
 	child: JSX.Element | JSX.Element[];
 };
 
-const ProtectedRoute = ({ child }: Props) => {
+const AppRoute = ({ child }: Props) => {
 	const location = useLocation();
 	const user = useLoggedInUser();
 
@@ -15,7 +15,7 @@ const ProtectedRoute = ({ child }: Props) => {
 		return <Navigate to="/" state={{ from: location }} />;
 	}
 
-	return <SideMenu>{child}</SideMenu>;
+	return <AppContent>{child}</AppContent>;
 };
 
-export default ProtectedRoute;
+export default AppRoute;

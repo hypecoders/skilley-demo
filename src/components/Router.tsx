@@ -2,53 +2,32 @@ import { Route, Routes } from 'react-router-dom';
 
 import Dashboard from '../routes/Dashboard';
 import Error404 from '../routes/Error404';
-import Home from '../routes/Home';
-import Invoice from '../routes/Invoice';
-import Invoices from '../routes/Invoices';
 import Pool from '../routes/Pool';
 import Leaderboard from '../routes/Leaderboard';
-import ProtectedRoute from '../routes/ProtectedRoute';
+import AppRoute from '../routes/app/AppRoute';
 import Profile from '../routes/Profile';
-
-import AppBar from './landing-page/AppBar';
-import Footer from './landing-page/Footer';
+import LandingPage from '../routes/LandingPage';
+import MyTests from '../routes/app/tests/MyTests';
+import NewTest from '../routes/app/tests/NewTest';
 
 const Router = () => (
 	<Routes>
-		<Route
-			path="/"
-			element={
-				<>
-					<AppBar />
-					<Home />
-					<Footer />
-				</>
-			}
-		/>
+		<Route path="/" element={<LandingPage />} />
 		<Route path="pool" element={<Pool />} />
 		<Route path="leaderboard" element={<Leaderboard />} />
-		<Route path="invoices" element={<Invoices />}>
+		{/* <Route path="invoices" element={<Invoices />}>
 			<Route index element={<p>Select an invoice</p>} />
 			<Route path=":invoiceId" element={<Invoice />} />
-		</Route>
+		</Route> */}
 		<Route path="app">
-			<Route path="profile" element={<ProtectedRoute child={<Profile />} />} />
-			<Route
-				path="dashboard"
-				element={<ProtectedRoute child={<Dashboard />} />}
-			/>
-			<Route
-				path="trending"
-				element={<ProtectedRoute child={<Dashboard />} />}
-			/>
-			<Route
-				path="explore"
-				element={<ProtectedRoute child={<Dashboard />} />}
-			/>
-			<Route
-				path="mytests"
-				element={<ProtectedRoute child={<Dashboard />} />}
-			/>
+			<Route path="profile" element={<AppRoute child={<Profile />} />} />
+			<Route path="dashboard" element={<AppRoute child={<Dashboard />} />} />
+			<Route path="trending" element={<AppRoute child={<Dashboard />} />} />
+			<Route path="explore" element={<AppRoute child={<Dashboard />} />} />
+			<Route path="tests">
+				<Route index element={<AppRoute child={<MyTests />} />} />
+				<Route path="new" element={<AppRoute child={<NewTest />} />} />
+			</Route>
 		</Route>
 		<Route path="*" element={<Error404 />} />
 	</Routes>
