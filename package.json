@@ -10,7 +10,6 @@
 		"@emotion/styled": "^11",
 		"@fontsource/assistant": "^4.5.1",
 		"@fontsource/outfit": "^4.5.0",
-		"@types/react-slick": "^0.23.7",
 		"firebase": "^9.5.0",
 		"formik": "^2.2.9",
 		"formik-chakra-ui": "^1.6.0",
@@ -21,7 +20,6 @@
 		"react-router": "^6.0.2",
 		"react-router-dom": "^6.0.2",
 		"react-scripts": "4.0.3",
-		"react-slick": "^0.28.1",
 		"yup": "^0.32.11"
 	},
 	"devDependencies": {
