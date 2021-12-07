@@ -9,7 +9,7 @@ const Home = () => {
 
 	return (
 		<>
-			<Container display="flex" height="100vh" maxW="3xl">
+			<Container display="flex" height="90vh" maxW="3xl">
 				<Stack
 					as={Box}
 					textAlign="center"
@@ -47,7 +47,7 @@ const Home = () => {
 						<Button variant="primary">Get Started</Button>
 						<Button
 							onClick={() =>
-								window.scrollTo({ top: height + height, behavior: 'smooth' })
+								window.scrollTo({ top: height, behavior: 'smooth' })
 							}
 							variant="link"
 						>
