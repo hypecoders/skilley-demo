@@ -6,5 +6,10 @@ export type UserData = {
 	skills?: string[];
 	icon?: string;
 	background?: string;
-	// TODO: skills array
+	accountType?: Role;
 };
+
+export enum Role {
+	RECRUITER = 'RECRUITER',
+	APPLICANT = 'APPLICANT'
+}
