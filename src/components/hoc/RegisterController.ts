@@ -2,6 +2,7 @@ import { UseToastOptions } from '@chakra-ui/toast';
 import { setDoc } from '@firebase/firestore';
 import { withFormik } from 'formik';
 
+import { Role } from '../../common/db';
 import { RegistrationDefaults, toastProps } from '../../common/defaults';
 import { RegistrationModel } from '../../common/models';
 import { RegistrationSchema } from '../../common/validations';
@@ -33,7 +34,8 @@ export const RegisterController = withFormik<Props, RegistrationModel>({
 				uid: user.uid,
 				firstName,
 				lastName,
-				locations
+				locations,
+				accountType: Role.APPLICANT
 			});
 			// Notify
 			toast({
