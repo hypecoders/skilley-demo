@@ -11,8 +11,8 @@ import { Button, Checkbox, Input } from './components';
 const theme = extendTheme(
 	{
 		fonts: {
-			heading: `Outfit, ${base.fonts?.heading}`,
-			body: `Assistant, ${base.fonts?.body}`
+			heading: `Raleway, ${base.fonts?.heading}`,
+			body: `Source Sans 3, ${base.fonts?.body}`
 		},
 		colors,
 		components: {
