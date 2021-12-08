@@ -27,7 +27,17 @@ const AppContent: FC = ({ children }) => {
 			</Drawer>
 			<MobileDashboard onOpen={onOpen} />
 			{/* App Content */}
-			<Box ml={{ base: 0, md: 60 }}>{children}</Box>
+			{/* Note: ml is 60 (width of sidenav + actual margin) */}
+			{/* App Content */}
+			<Box
+				ml={{ md: 60 }}
+				pl={{ base: 5, sm: 10 }}
+				pr={{ base: 5, sm: 10, md: 12 }}
+				py={12}
+				bg="gray.50"
+			>
+				{children}
+			</Box>
 		</Box>
 	);
 };

@@ -3,10 +3,10 @@ export type UserData = {
 	firstName: string;
 	lastName: string;
 	locations: string[];
-	skills?: string[];
+	skills: string[];
 	icon?: string;
 	background?: string;
-	accountType?: Role;
+	accountType: Role;
 };
 
 export enum Role {
@@ -17,3 +17,9 @@ export enum Role {
 export type RoleData = {
 	accountType: Role;
 };
+
+export const Locations = [
+	{ value: 'slovakia', label: 'Slovakia' },
+	{ value: 'czechia', label: 'Czech Republic' },
+	{ value: 'remote', label: 'Remote' }
+];

@@ -10,6 +10,7 @@ import {
 	Button,
 	useColorModeValue
 } from '@chakra-ui/react';
+import { AiFillLock } from 'react-icons/ai';
 
 import backgroundImg from '../assets/background.png';
 import { UserData } from '../common/db';
@@ -18,7 +19,7 @@ type Props = {
 	user: UserData;
 };
 
-const Card = ({ user }: Props) => (
+const BigProfileCard = ({ user }: Props) => (
 	<Center m={5}>
 		<Box
 			w={{ base: 250, md: 300 }}
@@ -54,7 +55,7 @@ const Card = ({ user }: Props) => (
 					<Heading fontSize="2xl" fontWeight={500} fontFamily="body">
 						{`${user.firstName} ${user.lastName}`}
 					</Heading>
-					<Text color="gray.500">Frontend Developer</Text>
+					{/* <Text color="gray.500">Frontend Developer</Text> */}
 				</Stack>
 
 				<Stack direction="row" justify="center" spacing={6}>
@@ -72,12 +73,21 @@ const Card = ({ user }: Props) => (
 					</Stack>
 				</Stack>
 
-				<Button variant="primary" width="full" mt={5}>
-					Contact
+				<Button
+					_hover={{
+						backgroundColor: 'brand.500'
+					}}
+					disabled
+					variant="primary"
+					width="full"
+					mt={5}
+				>
+					Profile
+					<AiFillLock />
 				</Button>
 			</Box>
 		</Box>
 	</Center>
 );
 
-export default Card;
+export default BigProfileCard;

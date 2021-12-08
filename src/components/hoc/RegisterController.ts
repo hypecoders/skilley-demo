@@ -35,7 +35,8 @@ export const RegisterController = withFormik<Props, RegistrationModel>({
 				firstName,
 				lastName,
 				locations,
-				accountType: Role.APPLICANT
+				accountType: Role.APPLICANT,
+				skills: []
 			});
 			// Notify
 			toast({

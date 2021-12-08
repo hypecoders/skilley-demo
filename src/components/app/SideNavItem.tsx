@@ -41,6 +41,7 @@ const SideNavItem = ({
 				}}
 				as={icon}
 			/>
+
 			{children}
 			{isActive && <ILeftArrow style={{ marginLeft: 20 }} />}
 		</Flex>

@@ -1,34 +1,17 @@
-import { Box, Container, Flex, Heading, Stack } from '@chakra-ui/layout';
+import { Box, Flex, Heading, Stack } from '@chakra-ui/layout';
 import { getDocs } from '@firebase/firestore';
 import { useEffect, useMemo, useState } from 'react';
-import {
-	Button,
-	Grid,
-	IconButton,
-	Popover,
-	PopoverArrow,
-	PopoverBody,
-	PopoverCloseButton,
-	PopoverContent,
-	PopoverHeader,
-	PopoverTrigger,
-	Text
-} from '@chakra-ui/react';
+import { IconButton, SlideFade, Text } from '@chakra-ui/react';
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 
 import { UserData } from '../common/db';
 import Loader from '../components/Loader';
 import { usersDataCollection } from '../utils/firebase';
 import colors from '../utils/theme/colors';
-// import Card from '../components/Card';
-import skillList from '../common/skillList';
-import SmallCard from '../components/SmallCard';
-
-const Locations = [
-	{ value: 'slovakia', label: 'Slovakia' },
-	{ value: 'czechia', label: 'Czech Republic' },
-	{ value: 'remote', label: 'Remote' }
-];
+import SkillPopover from '../components/popover/SkillPopover';
+import LocationPopover from '../components/popover/LocationPopover';
+import BigProfileCard from '../components/BigProfileCard';
+import useWindowDimensions from '../hooks/windowDimensions';
 
 const Pool = () => {
 	const [users, setUsers] = useState<UserData[]>([]);
@@ -36,6 +19,9 @@ const Pool = () => {
 	const [locations, setLocations] = useState<string[]>([]);
 	const [skills, setSkills] = useState<string[]>([]);
 	const [idx, setIdx] = useState<number>(0);
+	const [animate, setAnimate] = useState<boolean>(true);
+	const [toLeft, setToLeft] = useState<boolean>(true);
+	const { height } = useWindowDimensions();
 
 	const filtredUsers = useMemo(
 		() =>
@@ -45,12 +31,34 @@ const Pool = () => {
 		[locations, skills, users]
 	);
 
-	const increment = () => {
-		setIdx(idx + 4);
+	const incrementIdx = () => {
+		setToLeft(true);
+		setAnimate(false);
+
+		setTimeout(() => {
+			setToLeft(false);
+			setAnimate(true);
+			if (idx === filtredUsers.length - 1) {
+				setIdx(0);
+			} else {
+				setIdx(idx + 1);
+			}
+		}, 200);
 	};
 
-	const decrement = () => {
-		setIdx(idx - 4);
+	const decrementIdx = () => {
+		setToLeft(false);
+		setAnimate(false);
+
+		setTimeout(() => {
+			setToLeft(true);
+			setAnimate(true);
+			if (idx === 0) {
+				setIdx(filtredUsers.length - 1);
+			} else {
+				setIdx(idx - 1);
+			}
+		}, 200);
 	};
 
 	useEffect(() => {
@@ -70,132 +78,74 @@ const Pool = () => {
 		setIdx(0);
 	}, [filtredUsers]);
 
+	useEffect(() => {
+		console.log(animate);
+	}, [animate, setAnimate]);
+
 	if (isLoading) {
 		return <Loader />;
 	}
 
 	return (
-		<Container pt={10} display="flex" height="100vh" maxW="3xl">
-			<Stack as={Box} textAlign="center" spacing={{ base: 8, md: 3 }} w="full">
-				<Heading
-					fontWeight={600}
-					fontSize={{ base: '2xl', md: '4xl' }}
-					lineHeight="110%"
-				>
-					Search for
-					<Text as="span" color={colors.brand[600]}>
-						{' '}
-						talented{' '}
-					</Text>
-					people
-				</Heading>
-				<Box>
-					<Popover>
-						<PopoverTrigger>
-							<Button mx={2} variant="primary">
-								{`Skills ${skills.length > 0 ? `(${skills.length})` : ''}`}
-							</Button>
-						</PopoverTrigger>
-						<PopoverContent>
-							<PopoverArrow />
-							<PopoverCloseButton />
-							<PopoverHeader>Filter skills</PopoverHeader>
-							<PopoverBody>
-								{skillList.map(skill => (
-									<Button
-										key={skill}
-										variant="skill"
-										borderColor={
-											skills.includes(skill) ? 'brand.500' : 'gray.300'
-										}
-										onClick={() =>
-											setSkills(
-												skills.includes(skill)
-													? skills.filter(item => item !== skill)
-													: prevSkills => [...prevSkills, skill]
-											)
-										}
-									>
-										{skill}
-									</Button>
-								))}
-							</PopoverBody>
-						</PopoverContent>
-					</Popover>
-					<Popover>
-						<PopoverTrigger>
-							<Button mx={5} variant="primary">
-								Locations
-							</Button>
-						</PopoverTrigger>
-						<PopoverContent>
-							<PopoverArrow />
-							<PopoverCloseButton />
-							<PopoverHeader>Filter locations</PopoverHeader>
-							<PopoverBody>
-								{Locations.map(location => (
-									<Button
-										key={location.value}
-										variant="skill"
-										borderColor={
-											locations.includes(location.value)
-												? 'brand.500'
-												: 'gray.300'
-										}
-										onClick={() =>
-											setLocations(
-												locations.includes(location.value)
-													? locations.filter(item => item !== location.value)
-													: prevLocations => [...prevLocations, location.value]
-											)
-										}
-									>
-										{location.label}
-									</Button>
-								))}
-							</PopoverBody>
-						</PopoverContent>
-					</Popover>
+		<Stack
+			as={Box}
+			textAlign="center"
+			w="full"
+			height={{ base: height - 56.99 - 39.99, md: height - 56.99 - 47.98 }}
+		>
+			<Heading
+				mt={{ base: 2, md: 20 }}
+				fontWeight={600}
+				fontSize={{ base: '2xl', md: '4xl' }}
+				lineHeight="110%"
+			>
+				Search for
+				<Text as="span" color={colors.brand[600]}>
+					{' '}
+					talented{' '}
+				</Text>
+				people
+			</Heading>
+			<Box>
+				<SkillPopover skills={skills} setSkills={setSkills} />
+				<LocationPopover locations={locations} setLocations={setLocations} />
+			</Box>
+			<Flex
+				height="full"
+				w="full"
+				direction="row"
+				align="center"
+				justifyContent="center"
+			>
+				<IconButton
+					variant="onlyIcon"
+					onClick={decrementIdx}
+					aria-label="<-"
+					icon={<ArrowBackIcon h={8} w={8} />}
+					display={filtredUsers.length < 2 ? 'none' : ''}
+				/>
+				<Box height="full" w={{ base: 250, md: 300 }}>
+					{filtredUsers[idx] && (
+						<SlideFade
+							in={animate}
+							offsetX={toLeft ? '-300px' : '300px'}
+							// reverse={false}
+							unmountOnExit
+						>
+							<BigProfileCard user={filtredUsers[idx]} />
+						</SlideFade>
+					)}
 				</Box>
-				<Flex
-					mt={0}
-					// height="full"
-					direction="row"
-					align="center"
-					// justifyContent="center"
-				>
-					<IconButton
-						variant="onlyIcon"
-						disabled={filtredUsers.length < 5 || idx - 4 < 0}
-						onClick={decrement}
-						aria-label="<-"
-						icon={<ArrowBackIcon h={8} w={8} />}
-						display={filtredUsers.length === 0 ? 'none' : ''}
-					/>
 
-					<Grid
-						templateRows="repeat(2, 1fr)"
-						templateColumns="repeat(2, 1fr)"
-						gap={1}
-					>
-						{filtredUsers.slice(idx, idx + 4).map((_, i) => (
-							<SmallCard
-								key={filtredUsers[idx + i].uid}
-								user={filtredUsers[idx + i]}
-							/>
-						))}
-					</Grid>
-					<IconButton
-						variant="onlyIcon"
-						disabled={filtredUsers.length < 5 || filtredUsers.length - idx < 4}
-						display={filtredUsers.length === 0 ? 'none' : ''}
-						onClick={increment}
-						aria-label="->"
-						icon={<ArrowForwardIcon h={8} w={8} />}
-					/>
-				</Flex>
-			</Stack>
-		</Container>
+				<IconButton
+					variant="onlyIcon"
+					display={filtredUsers.length < 2 ? 'none' : ''}
+					onClick={incrementIdx}
+					aria-label="->"
+					icon={<ArrowForwardIcon h={8} w={8} />}
+				/>
+			</Flex>
+		</Stack>
 	);
 };
 
