@@ -48,7 +48,6 @@ const AppBar = () => {
 		<Box>
 			<Flex
 				bg="white"
-				h="60px"
 				py={2}
 				px={{ base: 4, md: 10 }}
 				borderBottom={1}

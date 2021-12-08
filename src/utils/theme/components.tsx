@@ -128,3 +128,15 @@ export const Box = {
 		}
 	}
 };
+
+export const IconButton = {
+	variants: {
+		onlyIcon: {
+			bg: 'white',
+			_hover: { bg: 'white' },
+			_focus: {
+				borderColor: 'white'
+			}
+		}
+	}
+};

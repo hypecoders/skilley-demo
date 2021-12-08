@@ -2,18 +2,18 @@ import { Route, Routes } from 'react-router-dom';
 
 import Dashboard from '../routes/Dashboard';
 import Error404 from '../routes/Error404';
-import Pool from '../routes/Pool';
 import Leaderboard from '../routes/Leaderboard';
 import AppRoute from '../routes/app/AppRoute';
 import Profile from '../routes/Profile';
 import LandingPage from '../routes/LandingPage';
 import Tests from '../routes/app/tests/Tests';
 import NewTest from '../routes/app/tests/NewTest';
+import PublicPool from '../routes/PublicPool';
 
 const Router = () => (
 	<Routes>
 		<Route path="/" element={<LandingPage />} />
-		<Route path="pool" element={<Pool />} />
+		<Route path="pool" element={<PublicPool />} />
 		<Route path="leaderboard" element={<Leaderboard />} />
 		{/* <Route path="invoices" element={<Invoices />}>
 			<Route index element={<p>Select an invoice</p>} />

@@ -43,7 +43,7 @@ const HomeSubpage = () => (
 		textAlign="center"
 		spacing={{ base: 8, md: 14 }}
 		py={{ base: 20, md: 36 }}
-		height="100vh"
+		height="90vh"
 		maxW="5xl"
 	>
 		<Stack as={Box} spacing={{ base: 8, md: 14 }} justifyContent="center">

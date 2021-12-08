@@ -5,5 +5,15 @@ export type UserData = {
 	locations: string[];
 	skills?: string[];
 	icon?: string;
-	// TODO: skills array
+	background?: string;
+	accountType?: Role;
+};
+
+export enum Role {
+	RECRUITER = 'RECRUITER',
+	APPLICANT = 'APPLICANT'
+}
+
+export type RoleData = {
+	accountType: Role;
 };
