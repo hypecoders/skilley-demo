@@ -5,8 +5,11 @@ import theme from './utils/theme';
 import Router from './components/Router';
 import { UserProvider } from './hooks/useLoggedInUser';
 
-import '@fontsource/assistant';
-import '@fontsource/outfit';
+import '@fontsource/source-sans-3';
+import '@fontsource/raleway/600.css';
+import '@fontsource/raleway/700.css';
+import '@fontsource/raleway/800.css';
+import '@fontsource/raleway/900.css';
 
 const App = () => (
 	<UserProvider>
