@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 
 import colors from './colors';
-import { Button, Checkbox, Input } from './components';
+import { Box, Button, Checkbox, Input } from './components';
 
 const theme = extendTheme(
 	{
@@ -18,7 +18,8 @@ const theme = extendTheme(
 		components: {
 			Button,
 			Input,
-			Checkbox
+			Checkbox,
+			Box
 		}
 	},
 	withDefaultColorScheme({

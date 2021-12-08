@@ -34,6 +34,18 @@ export const Button = {
 				ring: 0
 			}
 		},
+		ghost: {
+			backgroundColor: 'gray.100',
+			_hover: {
+				backgroundColor: 'gray.200'
+			},
+			_focus: {
+				ring: 0
+			},
+			_active: {
+				backgroundColor: 'gray.300'
+			}
+		},
 		text: {
 			color: 'gray.600',
 			backgroundColor: 'white',
@@ -105,6 +117,14 @@ export const Checkbox = {
 				ring: 2,
 				ringColor: 'black'
 			}
+		}
+	}
+};
+
+export const Box = {
+	variants: {
+		card: {
+			borderRadius: 5
 		}
 	}
 };

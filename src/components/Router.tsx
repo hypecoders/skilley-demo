@@ -7,7 +7,7 @@ import Leaderboard from '../routes/Leaderboard';
 import AppRoute from '../routes/app/AppRoute';
 import Profile from '../routes/Profile';
 import LandingPage from '../routes/LandingPage';
-import MyTests from '../routes/app/tests/MyTests';
+import Tests from '../routes/app/tests/Tests';
 import NewTest from '../routes/app/tests/NewTest';
 
 const Router = () => (
@@ -25,7 +25,7 @@ const Router = () => (
 			<Route path="trending" element={<AppRoute child={<Dashboard />} />} />
 			<Route path="explore" element={<AppRoute child={<Dashboard />} />} />
 			<Route path="tests">
-				<Route index element={<AppRoute child={<MyTests />} />} />
+				<Route index element={<AppRoute child={<Tests />} />} />
 				<Route path="new" element={<AppRoute child={<NewTest />} />} />
 			</Route>
 		</Route>
