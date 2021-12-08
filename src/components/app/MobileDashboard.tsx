@@ -19,7 +19,7 @@ import { useState, useEffect } from 'react';
 import { FiMenu, FiChevronDown } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
-import { UserData } from '../../common/db';
+import { Role, UserData } from '../../common/db';
 import { toastProps } from '../../common/defaults';
 import useLoggedInUser from '../../hooks/useLoggedInUser';
 import { getUserData, signOut } from '../../utils/firebase';
@@ -117,7 +117,9 @@ const MobileDashboard = ({ onOpen, ...rest }: MobileNavProps) => {
 										{user?.email}
 									</Text>
 									<Text fontSize="xs" color="gray.600">
-										User
+										{user?.accountType === Role.APPLICANT
+											? 'Applicant'
+											: 'Recruiter'}
 									</Text>
 								</VStack>
 								<Box display={{ base: 'none', md: 'flex' }}>

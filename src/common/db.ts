@@ -13,3 +13,7 @@ export enum Role {
 	RECRUITER = 'RECRUITER',
 	APPLICANT = 'APPLICANT'
 }
+
+export type RoleData = {
+	accountType: Role;
+};
