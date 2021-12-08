@@ -116,6 +116,7 @@ const Pool = () => {
 				direction="row"
 				align="center"
 				justifyContent="center"
+				overflowY="hidden"
 			>
 				<IconButton
 					variant="onlyIcon"
@@ -124,12 +125,11 @@ const Pool = () => {
 					icon={<ArrowBackIcon h={8} w={8} />}
 					display={filtredUsers.length < 2 ? 'none' : ''}
 				/>
-				<Box height="full" w={{ base: 250, md: 300 }}>
+				<Box w={{ base: 250, md: 300 }}>
 					{filtredUsers[idx] && (
 						<SlideFade
 							in={animate}
 							offsetX={toLeft ? '-300px' : '300px'}
-							// reverse={false}
 							unmountOnExit
 						>
 							<BigProfileCard user={filtredUsers[idx]} />
