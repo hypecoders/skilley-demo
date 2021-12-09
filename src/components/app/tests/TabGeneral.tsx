@@ -34,6 +34,7 @@ const TabGeneral = ({ created, modified, conductor }: Props) => {
 			});
 		}
 	}, []);
+
 	return (
 		<Box mb={6}>
 			<Text fontSize="xl" fontWeight="bold">

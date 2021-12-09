@@ -1,6 +1,5 @@
 import { Button, ButtonGroup, IconButton } from '@chakra-ui/button';
-import Icon from '@chakra-ui/icon';
-import { Box, Flex, HStack, Text, VStack } from '@chakra-ui/layout';
+import { Flex, Text, VStack } from '@chakra-ui/layout';
 import { Tag, TagLabel } from '@chakra-ui/tag';
 import { HiOutlineTrash as ITrash } from 'react-icons/hi';
 

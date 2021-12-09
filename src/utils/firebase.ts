@@ -8,6 +8,8 @@ import {
 	User
 } from 'firebase/auth';
 import {
+	arrayRemove,
+	arrayUnion,
 	collection,
 	CollectionReference,
 	doc,
@@ -18,7 +20,7 @@ import {
 	updateDoc
 } from 'firebase/firestore';
 
-import { RoleData, TestData, UserData } from '../common/db';
+import { Question, RoleData, TestData, UserData } from '../common/db';
 
 initializeApp({
 	apiKey: 'AIzaSyAnL_jqyP95HUVN43L5rwGtjmUV3NGfhQg',
@@ -83,3 +85,11 @@ export const setTestData = (testId: string, payload: TestData) =>
 	setDoc(testsDoc(testId), payload);
 export const updateTestData = (testId: string, payload: Partial<TestData>) =>
 	updateDoc(testsDoc(testId), payload);
+export const addQuestionToTest = (testId: string, question: Question) =>
+	updateDoc(testsDoc(testId), {
+		questions: arrayUnion(question)
+	});
+export const removeQuestionFromTest = (testId: string, question: Question) =>
+	updateDoc(testsDoc(testId), {
+		questions: arrayRemove(question)
+	});

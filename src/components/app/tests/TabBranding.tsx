@@ -43,11 +43,14 @@ const TabBranding = ({ defaultPrimary, defaultSecondary }: Props) => {
 
 	const [primaryCol, setPrimaryCol] = useState(defaultPrimary);
 	const [secondaryCol, setSecondaryCol] = useState(defaultSecondary);
+	const [showButtonMsg, setShowButtonMsg] = useState(false);
+
+	const messageMe = useCallback(() => setShowButtonMsg(true), []);
 
 	const calculateColor = useCallback(
 		(hex: string) => {
 			const rgb = hexToRgb(hex);
-			// to shutup typescript
+			// shutup typescript plz bro
 			if (!rgb) {
 				return '';
 			}
@@ -122,16 +125,18 @@ const TabBranding = ({ defaultPrimary, defaultSecondary }: Props) => {
 				Preview
 			</Text>
 			<Divider mt={2} mb={6} />
-			<HStack spacing={6} align="center">
+			<HStack spacing={4} align="center">
 				<Button
 					color={calculateColor(primaryCol)}
 					bg={primaryCol}
 					_hover={{ bg: primaryCol }}
 					_focus={{ ring: 3, ringColor: secondaryCol }}
 					_active={{ bg: primaryCol }}
+					onClick={messageMe}
 				>
 					Click me!
 				</Button>
+				{showButtonMsg && <Text>Looking sharp 👌</Text>}
 			</HStack>
 		</Box>
 	);

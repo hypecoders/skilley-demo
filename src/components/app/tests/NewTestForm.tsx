@@ -22,6 +22,7 @@ import { capitalizeFirstLetter } from '../../../utils';
 import TabBranding from './TabBranding';
 import TabGeneral from './TabGeneral';
 import TabMessages from './TabMessages';
+import TabQuestions from './TabQuestions';
 
 const tagColors = {
 	active: 'blue',
@@ -75,7 +76,7 @@ const NewTestForm = (props: FormikProps<TestData>) => {
 						<TabMessages />
 					</TabPanel>
 					<TabPanel>
-						<p>questionning</p>
+						<TabQuestions defaultQuestionArray={values.questions} />
 					</TabPanel>
 					<TabPanel>
 						<TabBranding
