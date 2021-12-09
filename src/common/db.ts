@@ -7,10 +7,10 @@ export type UserData = {
 	firstName: string;
 	lastName: string;
 	locations: string[];
-	skills?: string[];
+	skills: string[];
 	icon?: string;
 	background?: string;
-	accountType?: Role;
+	accountType: Role;
 };
 
 /* Roles */
@@ -59,3 +59,9 @@ export type TestData = {
 		secondary?: string;
 	};
 };
+
+export const Locations = [
+	{ value: 'slovakia', label: 'Slovakia' },
+	{ value: 'czechia', label: 'Czech Republic' },
+	{ value: 'remote', label: 'Remote' }
+];

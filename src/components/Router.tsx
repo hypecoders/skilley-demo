@@ -9,6 +9,7 @@ import LandingPage from '../routes/LandingPage';
 import Tests from '../routes/app/tests/Tests';
 import NewTest from '../routes/app/tests/NewTest';
 import PublicPool from '../routes/PublicPool';
+import PrivatePool from '../routes/PrivatePool';
 
 const Router = () => (
 	<Routes>
@@ -23,7 +24,7 @@ const Router = () => (
 			<Route path="profile" element={<AppRoute child={<Profile />} />} />
 			<Route path="dashboard" element={<AppRoute child={<Dashboard />} />} />
 			<Route path="trending" element={<AppRoute child={<Dashboard />} />} />
-			<Route path="explore" element={<AppRoute child={<Dashboard />} />} />
+			<Route path="explore" element={<AppRoute child={<PrivatePool />} />} />
 			<Route path="tests">
 				<Route index element={<AppRoute child={<Tests />} />} />
 				<Route path="new" element={<AppRoute child={<NewTest />} />} />
