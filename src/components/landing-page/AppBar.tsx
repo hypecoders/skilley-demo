@@ -25,17 +25,21 @@ type NavItem = {
 
 export const NAV_ITEMS: Array<NavItem> = [
 	{
-		label: 'Pricing',
-		href: '/pricing'
+		label: 'Home',
+		href: '/'
 	},
 	{
-		label: 'Leaderboard',
-		href: '/leaderboard'
+		label: 'Pricing',
+		href: '/pricing'
 	},
 	{
 		label: 'Talent Pool',
 		href: '/pool'
 	}
+	// {
+	// 	label: 'Leaderboard',
+	// 	href: '/leaderboard'
+	// }
 ];
 
 const AppBar = () => {
@@ -60,28 +64,27 @@ const AppBar = () => {
 				<Flex justify={{ base: 'center', md: 'left' }} align="center">
 					<Logo />
 				</Flex>
-				<HStack spacing={{ md: 4 }}>
-					<Box display={{ base: 'none', md: 'block' }} mr={6}>
-						<DesktopNav />
-					</Box>
-					{user ? (
-						<Button
-							onClick={() => navigate('/app/dashboard')}
-							variant="primary"
-							size={buttonSize}
-							ml={-10}
-						>
-							Dashboard
-						</Button>
-					) : (
-						<HStack spacing={{ md: 4 }}>
-							<LoginModal />
-							<Box display={{ base: 'none', md: 'block' }}>
-								<RegisterModal />
-							</Box>
-						</HStack>
-					)}
-				</HStack>
+
+				<Box display={{ base: 'none', md: 'block' }} mr={6}>
+					<DesktopNav />
+				</Box>
+				{user ? (
+					<Button
+						onClick={() => navigate('/app/dashboard')}
+						variant="primary"
+						size={buttonSize}
+						ml={-10}
+					>
+						Dashboard
+					</Button>
+				) : (
+					<HStack spacing={{ md: 4 }}>
+						<LoginModal />
+						<Box display={{ base: 'none', md: 'block' }}>
+							<RegisterModal />
+						</Box>
+					</HStack>
+				)}
 			</Flex>
 
 			<Collapse in={isOpen} animateOpacity>

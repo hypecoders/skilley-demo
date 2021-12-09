@@ -63,8 +63,7 @@ const HomeSubpage = () => (
 					</Text>
 					<Heading>A digital platform for better hiring</Heading>
 					<Text color="gray.500" fontSize="lg">
-						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-						nonumy eirmod tempor invidunt ut labore
+						Use our modern website to be more efficient in hiring
 					</Text>
 					<Stack
 						spacing={4}

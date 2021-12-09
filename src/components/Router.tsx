@@ -6,12 +6,13 @@ import Leaderboard from '../routes/Leaderboard';
 import AppRoute from '../routes/app/AppRoute';
 import Profile from '../routes/Profile';
 import LandingPage from '../routes/LandingPage';
-import MyTests from '../routes/app/tests/MyTests';
+// import MyTests from '../routes/app/tests/MyTests';
 import NewTest from '../routes/app/tests/NewTest';
 import PublicPool from '../routes/PublicPool';
 import PrivatePool from '../routes/PrivatePool';
 import Messages from '../routes/Messages';
 import Pricing from '../routes/Pricing';
+import UnderConstruction from '../modules/UnderConstruction';
 
 const Router = () => (
 	<Routes>
@@ -25,12 +26,15 @@ const Router = () => (
 		</Route> */}
 		<Route path="app">
 			<Route path="profile" element={<AppRoute child={<Profile />} />} />
-			<Route path="dashboard" element={<AppRoute child={<Dashboard />} />} />
+			<Route
+				path="dashboard"
+				element={<AppRoute child={<UnderConstruction />} />}
+			/>
 			<Route path="trending" element={<AppRoute child={<Dashboard />} />} />
 			<Route path="explore" element={<AppRoute child={<PrivatePool />} />} />
 			<Route path="messages" element={<AppRoute child={<Messages />} />} />
 			<Route path="tests">
-				<Route index element={<AppRoute child={<MyTests />} />} />
+				<Route index element={<AppRoute child={<UnderConstruction />} />} />
 				<Route path="new" element={<AppRoute child={<NewTest />} />} />
 			</Route>
 		</Route>
