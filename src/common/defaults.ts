@@ -44,6 +44,7 @@ export const TestDefaults: TestData = {
 	title: '',
 	created: Timestamp.now(),
 	modified: Timestamp.now(),
+	conductor: '',
 	closingRule: 'manual',
 	status: 'draft',
 	messages: {
@@ -61,5 +62,9 @@ export const TestDefaults: TestData = {
 		message: 'Please, answer the following questions.'
 	},
 	questions: [QuestionDefaults],
-	participants: []
+	participants: [],
+	branding: {
+		primary: '#5527be',
+		secondary: '#000000'
+	}
 };

@@ -7,6 +7,7 @@ import { customAlphabet } from 'nanoid';
 import MyTests from '../../../components/app/tests/MyTests';
 import { setTestData } from '../../../utils/firebase';
 import { TestDefaults, toastProps } from '../../../common/defaults';
+import useLoggedInUser from '../../../hooks/useLoggedInUser';
 
 const nanoid = customAlphabet(
 	'1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -17,6 +18,7 @@ const Tests = () => {
 	const navigate = useNavigate();
 	const toast = useToast();
 	const [isSubmitting, setSubmitting] = useState(false);
+	const user = useLoggedInUser();
 
 	const initTest = useCallback(async () => {
 		setSubmitting(true);
@@ -24,7 +26,8 @@ const Tests = () => {
 		try {
 			await setTestData(testId, {
 				...TestDefaults,
-				title: `New test #${testId}`
+				title: `New test #${testId}`,
+				conductor: user?.email as never
 			});
 			setSubmitting(false);
 			navigate(`/app/tests/new?id=${testId}`);

@@ -14,7 +14,8 @@ import {
 	DocumentReference,
 	getDoc,
 	getFirestore,
-	setDoc
+	setDoc,
+	updateDoc
 } from 'firebase/firestore';
 
 import { RoleData, TestData, UserData } from '../common/db';
@@ -80,3 +81,5 @@ export const testsDoc = (id: string) =>
 export const getTestData = (testId: string) => getDoc(testsDoc(testId));
 export const setTestData = (testId: string, payload: TestData) =>
 	setDoc(testsDoc(testId), payload);
+export const updateTestData = (testId: string, payload: Partial<TestData>) =>
+	updateDoc(testsDoc(testId), payload);

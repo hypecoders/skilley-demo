@@ -19,7 +19,9 @@ import {
 import { TestData } from '../../../common/db';
 import { capitalizeFirstLetter } from '../../../utils';
 
+import TabBranding from './TabBranding';
 import TabGeneral from './TabGeneral';
+import TabMessages from './TabMessages';
 
 const tagColors = {
 	active: 'blue',
@@ -63,16 +65,23 @@ const NewTestForm = (props: FormikProps<TestData>) => {
 				<Divider my={4} />
 				<TabPanels>
 					<TabPanel>
-						<TabGeneral created={values.created} modified={values.modified} />
+						<TabGeneral
+							created={values.created}
+							modified={values.modified}
+							conductor={values.conductor}
+						/>
 					</TabPanel>
 					<TabPanel>
-						<p>messages specification</p>
+						<TabMessages />
 					</TabPanel>
 					<TabPanel>
 						<p>questionning</p>
 					</TabPanel>
 					<TabPanel>
-						<p>branding customization</p>
+						<TabBranding
+							defaultPrimary={values.branding.primary}
+							defaultSecondary={values.branding.secondary}
+						/>
 					</TabPanel>
 				</TabPanels>
 			</Tabs>

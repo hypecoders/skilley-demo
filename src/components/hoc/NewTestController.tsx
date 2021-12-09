@@ -14,17 +14,17 @@ export const NewTestController = withFormik<Props, TestData>({
 		title: props.testData.title,
 		created: props.testData.created,
 		modified: props.testData.modified,
+		conductor: props.testData.conductor,
 		closingRule: props.testData.closingRule,
 		status: props.testData.status,
 		messages: props.testData.messages,
 		questionIntro: props.testData.questionIntro,
 		questions: props.testData.questions,
 		participants: props.testData.participants,
-		primaryColor: props.testData.branding?.primary,
-		secondaryColor: props.testData.branding?.secondary,
+		branding: props.testData.branding,
 		toast: props.toast
 	}),
-	handleSubmit: async () => {
-		// handle submit
+	handleSubmit: () => {
+		// Launch button logic
 	}
 })(NewTestForm);

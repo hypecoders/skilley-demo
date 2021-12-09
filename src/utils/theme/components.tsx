@@ -15,7 +15,7 @@ export const Button = {
 	variants: {
 		primary: {
 			color: 'white',
-			backgroundColor: 'brand.500',
+			bg: 'brand.500',
 			_hover: {
 				backgroundColor: 'brand.400'
 			},

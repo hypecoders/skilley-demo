@@ -40,6 +40,7 @@ export type TestData = {
 	title: string;
 	created: Timestamp;
 	modified: Timestamp;
+	conductor: string;
 	closingRule: 'manual' | 'limit' | 'date';
 	status: 'active' | 'draft' | 'finished';
 	messages: {
@@ -54,9 +55,9 @@ export type TestData = {
 	};
 	questions: Question[];
 	participants: string[];
-	branding?: {
-		primary?: string;
-		secondary?: string;
+	branding: {
+		primary: string;
+		secondary: string;
 	};
 };
 
