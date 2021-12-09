@@ -16,7 +16,7 @@ import {
 	getFirestore
 } from 'firebase/firestore';
 
-import { RoleData, UserData } from '../common/db';
+import { Message, RoleData, UserData } from '../common/db';
 
 initializeApp({
 	apiKey: 'AIzaSyAnL_jqyP95HUVN43L5rwGtjmUV3NGfhQg',
@@ -69,3 +69,12 @@ export const rolesCollection = collection(
 ) as CollectionReference<RoleData>;
 
 export const getRole = (id: string) => getDoc(rolesDoc(id));
+
+// messages
+export const messageDoc = () =>
+	doc(db, 'messages') as DocumentReference<Message>;
+
+export const messagesCollection = collection(
+	db,
+	'messages'
+) as CollectionReference<Message>;

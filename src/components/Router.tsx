@@ -10,6 +10,7 @@ import MyTests from '../routes/app/tests/MyTests';
 import NewTest from '../routes/app/tests/NewTest';
 import PublicPool from '../routes/PublicPool';
 import PrivatePool from '../routes/PrivatePool';
+import Messages from '../routes/Messages';
 
 const Router = () => (
 	<Routes>
@@ -25,6 +26,7 @@ const Router = () => (
 			<Route path="dashboard" element={<AppRoute child={<Dashboard />} />} />
 			<Route path="trending" element={<AppRoute child={<Dashboard />} />} />
 			<Route path="explore" element={<AppRoute child={<PrivatePool />} />} />
+			<Route path="messages" element={<AppRoute child={<Messages />} />} />
 			<Route path="tests">
 				<Route index element={<AppRoute child={<MyTests />} />} />
 				<Route path="new" element={<AppRoute child={<NewTest />} />} />

@@ -12,11 +12,19 @@ import { UserData, Locations } from '../common/db';
 
 type Props = {
 	user: UserData;
-	selectedUsers: UserData[];
-	setSelectedUsers: React.Dispatch<React.SetStateAction<UserData[]>>;
+	selectedUsers?: UserData[];
+	setSelectedUsers?: React.Dispatch<React.SetStateAction<UserData[]>>;
+	setIsActiveSearch?: React.Dispatch<React.SetStateAction<boolean>>;
+	setRecipient?: React.Dispatch<React.SetStateAction<UserData | undefined>>;
 };
 
-const SmallProfile = ({ user, selectedUsers, setSelectedUsers }: Props) => (
+const SmallProfile = ({
+	user,
+	selectedUsers,
+	setSelectedUsers,
+	setIsActiveSearch,
+	setRecipient
+}: Props) => (
 	<Wrap
 		my={5}
 		bg={useColorModeValue('white', 'gray.800')}
@@ -78,23 +86,43 @@ const SmallProfile = ({ user, selectedUsers, setSelectedUsers }: Props) => (
 				</Flex>
 			</Flex>
 			<Flex flexDirection="column">
-				<Button variant="primary" borderRadius="25px" mt={1}>
-					Profile
-				</Button>
-				<Button
-					variant="skill"
-					borderColor={selectedUsers.includes(user) ? 'brand.500' : 'gray.300'}
-					mt={2}
-					onClick={() =>
-						setSelectedUsers(
-							selectedUsers.includes(user)
-								? selectedUsers.filter(item => item !== user)
-								: prevSelectedUsers => [...prevSelectedUsers, user]
-						)
-					}
-				>
-					Select
-				</Button>
+				{!setIsActiveSearch && (
+					<Button variant="primary" borderRadius="25px" mt={1}>
+						Profile
+					</Button>
+				)}
+
+				{selectedUsers && setSelectedUsers && (
+					<Button
+						variant="skill"
+						borderColor={
+							selectedUsers.includes(user) ? 'brand.500' : 'gray.300'
+						}
+						mt={2}
+						onClick={() =>
+							setSelectedUsers(
+								selectedUsers.includes(user)
+									? selectedUsers.filter(item => item !== user)
+									: prevSelectedUsers => [...prevSelectedUsers, user]
+							)
+						}
+					>
+						Select
+					</Button>
+				)}
+				{setIsActiveSearch && setRecipient && (
+					<Button
+						variant="primary"
+						// borderColor="brand.500"
+						mt={2}
+						onClick={() => {
+							setIsActiveSearch(false);
+							setRecipient(user);
+						}}
+					>
+						Message
+					</Button>
+				)}
 			</Flex>
 		</Flex>
 	</Wrap>

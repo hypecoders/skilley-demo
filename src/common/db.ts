@@ -1,3 +1,5 @@
+import { Timestamp } from '@firebase/firestore';
+
 export type UserData = {
 	uid: string;
 	firstName: string;
@@ -23,3 +25,10 @@ export const Locations = [
 	{ value: 'czechia', label: 'Czech Republic' },
 	{ value: 'remote', label: 'Remote' }
 ];
+
+export type Message = {
+	createdAt: Timestamp;
+	text: string;
+	sender: string;
+	participants: string[];
+};
