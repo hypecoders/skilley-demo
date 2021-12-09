@@ -106,6 +106,30 @@ const Messenger = ({
 		}
 	};
 
+	if (!recipient && messages.length === 0) {
+		return (
+			<Flex
+				h={height - 80 - 48 - 48}
+				bg="white"
+				border="2px"
+				borderColor="gray.100"
+				boxShadow="sm"
+				justify="center"
+				align="center"
+				flexDirection="column"
+			>
+				<Text>You have empty message box </Text>
+				<Button
+					my={2}
+					variant="primary"
+					onClick={() => setIsActiveSearch(true)}
+				>
+					To search
+				</Button>
+			</Flex>
+		);
+	}
+
 	if (!recipient) {
 		return <Loader />;
 	}
