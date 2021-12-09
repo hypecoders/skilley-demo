@@ -11,12 +11,14 @@ import NewTest from '../routes/app/tests/NewTest';
 import PublicPool from '../routes/PublicPool';
 import PrivatePool from '../routes/PrivatePool';
 import Messages from '../routes/Messages';
+import Pricing from '../routes/Pricing';
 
 const Router = () => (
 	<Routes>
 		<Route path="/" element={<LandingPage />} />
 		<Route path="pool" element={<PublicPool />} />
 		<Route path="leaderboard" element={<Leaderboard />} />
+		<Route path="pricing" element={<Pricing />} />
 		{/* <Route path="invoices" element={<Invoices />}>
 			<Route index element={<p>Select an invoice</p>} />
 			<Route path=":invoiceId" element={<Invoice />} />
