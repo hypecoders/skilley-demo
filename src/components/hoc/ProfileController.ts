@@ -18,11 +18,11 @@ type Props = {
 
 export const ProfileController = withFormik<Props, ProfileModel>({
 	mapPropsToValues: props => ({
-		firstName: props.userData?.firstName ? props.userData?.firstName : 'John',
-		lastName: props.userData?.lastName ? props.userData?.lastName : 'Doe',
-		email: props.user?.email ? props.user.email : 'johndoe@email.com',
-		locations: props.userData?.locations ? props.userData?.locations : [],
-		skills: props.userData?.skills ? props.userData?.skills : [],
+		firstName: props.userData?.firstName ?? '',
+		lastName: props.userData?.lastName ?? '',
+		email: props.user?.email ?? '',
+		locations: props.userData?.locations ?? [],
+		skills: props.userData?.skills ?? [],
 		userData: props.userData,
 		user: props.user,
 		toast: props.toast
@@ -51,7 +51,8 @@ export const ProfileController = withFormik<Props, ProfileModel>({
 			setSubmitting(false);
 		} catch (err) {
 			toast({
-				title: 'Profile failed to update.',
+				title: 'Fail.',
+				description: 'Unknown error occured.',
 				status: 'error',
 				...toastProps
 			});

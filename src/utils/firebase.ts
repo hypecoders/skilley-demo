@@ -13,10 +13,11 @@ import {
 	doc,
 	DocumentReference,
 	getDoc,
-	getFirestore
+	getFirestore,
+	setDoc
 } from 'firebase/firestore';
 
-import { RoleData, UserData } from '../common/db';
+import { RoleData, TestData, UserData } from '../common/db';
 
 initializeApp({
 	apiKey: 'AIzaSyAnL_jqyP95HUVN43L5rwGtjmUV3NGfhQg',
@@ -50,6 +51,7 @@ export const onAuthChanged = (callback: (u: User | null) => void) =>
 
 const db = getFirestore();
 
+// User data
 export const usersDataDoc = (uid: string) =>
 	doc(db, 'usersData', uid) as DocumentReference<UserData>;
 
@@ -60,6 +62,7 @@ export const usersDataCollection = collection(
 
 export const getUserData = (id: string) => getDoc(usersDataDoc(id));
 
+// Roles data
 export const rolesDoc = (uid: string) =>
 	doc(db, 'roles', uid) as DocumentReference<RoleData>;
 
@@ -69,3 +72,11 @@ export const rolesCollection = collection(
 ) as CollectionReference<RoleData>;
 
 export const getRole = (id: string) => getDoc(rolesDoc(id));
+
+// Test data
+export const testsDoc = (id: string) =>
+	doc(db, 'tests', id) as DocumentReference<TestData>;
+
+export const getTestData = (testId: string) => getDoc(testsDoc(testId));
+export const setTestData = (testId: string, payload: TestData) =>
+	setDoc(testsDoc(testId), payload);

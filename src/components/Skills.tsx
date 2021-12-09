@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, Wrap, WrapItem } from '@chakra-ui/layout';
 import { Button } from '@chakra-ui/react';
 import { CheckboxControl } from 'formik-chakra-ui';

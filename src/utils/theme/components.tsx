@@ -98,6 +98,15 @@ export const Button = {
 	}
 };
 
+export const Radio = {
+	baseStyle: {
+		control: {
+			_focus: { ring: 0 },
+			_checked: { bg: 'brand.500', borderColor: 'brand.500' }
+		}
+	}
+};
+
 export const Input = {
 	variants: {
 		filled: {
@@ -136,6 +145,33 @@ export const IconButton = {
 			_hover: { bg: 'white' },
 			_focus: {
 				borderColor: 'white'
+			}
+		}
+	}
+};
+
+export const CloseButton = {
+	variants: {
+		ghost: {
+			_focus: { ring: 0 }
+		}
+	}
+};
+
+export const Tabs = {
+	variants: {
+		pills: {
+			tab: {
+				borderRadius: 'full',
+				bg: 'gray.50',
+				fontWeight: 500,
+				mr: 3,
+				_hover: { bg: 'gray.100' },
+				_focus: { ring: 0 },
+				_active: { bg: 'gray.200' },
+				_selected: {
+					bg: 'gray.200'
+				}
 			}
 		}
 	}

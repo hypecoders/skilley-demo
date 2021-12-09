@@ -37,7 +37,7 @@ const MY_TESTS: Array<Test> = [
 const MyTests = () => (
 	<VStack spacing={10} my={12}>
 		{MY_TESTS.map(test => (
-			<Card key={test.title}>
+			<Card key={test.title} bg="white">
 				<Flex justify="space-between" align="center">
 					<VStack spacing={2} align="start">
 						<Tag colorScheme={test.tagColor} borderRadius="full">
@@ -48,7 +48,7 @@ const MyTests = () => (
 						<Text fontSize="xl" fontWeight="bold">
 							{test.title}
 						</Text>
-						<Text fontSize="sm" color="gray.500">
+						<Text fontSize="sm" color="gray.400" fontWeight={500}>
 							Created on {test.created}
 						</Text>
 					</VStack>

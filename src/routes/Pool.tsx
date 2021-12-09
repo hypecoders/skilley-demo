@@ -17,7 +17,7 @@ import {
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 
 import { UserData } from '../common/db';
-import Loader from '../components/Loader';
+import Loading from '../components/Loading';
 import { usersDataCollection } from '../utils/firebase';
 import colors from '../utils/theme/colors';
 // import Card from '../components/Card';
@@ -71,7 +71,7 @@ const Pool = () => {
 	}, [filtredUsers]);
 
 	if (isLoading) {
-		return <Loader />;
+		return <Loading />;
 	}
 
 	return (
