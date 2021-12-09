@@ -7,7 +7,7 @@ import { RegistrationDefaults, toastProps } from '../../common/defaults';
 import { RegistrationModel } from '../../common/models';
 import { RegistrationSchema } from '../../common/validations';
 import { FBErrorCode, useFirebaseError } from '../../hooks/useFirebaseError';
-import { signUp, usersDataDoc } from '../../utils/firebase';
+import { rolesDoc, signUp, usersDataDoc } from '../../utils/firebase';
 import RegisterForm from '../auth/RegisterForm';
 
 type Props = {
@@ -30,6 +30,10 @@ export const RegisterController = withFormik<Props, RegistrationModel>({
 			// Register user
 			const { user } = await signUp(email, password);
 			// Save user data
+			await setDoc(rolesDoc(user.uid), {
+				accountType: Role.APPLICANT
+			});
+
 			await setDoc(usersDataDoc(user.uid), {
 				uid: user.uid,
 				firstName,
@@ -38,6 +42,7 @@ export const RegisterController = withFormik<Props, RegistrationModel>({
 				accountType: Role.APPLICANT,
 				skills: []
 			});
+
 			// Notify
 			toast({
 				title: 'Account created.',
