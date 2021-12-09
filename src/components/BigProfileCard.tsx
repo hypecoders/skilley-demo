@@ -24,7 +24,7 @@ const BigProfileCard = ({ user }: Props) => (
 		<Box
 			w={{ base: 250, md: 300 }}
 			bg={useColorModeValue('white', 'gray.800')}
-			boxShadow="2xl"
+			boxShadow="md"
 			rounded="md"
 			overflow="hidden"
 		>
