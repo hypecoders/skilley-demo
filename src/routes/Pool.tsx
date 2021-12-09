@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Stack } from '@chakra-ui/layout';
+import { Box, Flex, Heading } from '@chakra-ui/layout';
 import { getDocs } from '@firebase/firestore';
 import { useEffect, useMemo, useState } from 'react';
 import {
