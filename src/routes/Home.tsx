@@ -23,19 +23,16 @@ const Home = () => {
 						lineHeight="110%"
 					>
 						Get a
-						<Text as="span" color={colors.brand[600]}>
+						<Text as="span" color="green.500" fontWeight="black">
 							{' '}
 							skilled{' '}
 						</Text>
 						developer for your company
 					</Heading>
 					<Text color="gray.500">
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industrys standard dummy text
-						ever since the 1500s, when an unknown printer took a galley of type
-						and scrambled it to make a type specimen book. It has survived not
-						only five centuries, but also the leap into electronic typesetting,
-						remaining essentially unchanged.
+						Bring the end to the degree and CV based hiring. Pick your unique
+						candidates from large talent pool, based on their actual skills and
+						not their qualifications.
 					</Text>
 					<Stack
 						direction="column"

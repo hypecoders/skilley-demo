@@ -113,7 +113,7 @@ const Pool = () => {
 				lineHeight="110%"
 			>
 				Search for
-				<Text as="span" color={colors.brand[600]}>
+				<Text as="span" color="green.500" fontWeight="black">
 					{' '}
 					talented{' '}
 				</Text>

@@ -61,7 +61,7 @@ const AppBar = () => {
 					<Logo />
 				</Flex>
 
-				<Box display={{ base: 'none', md: 'block' }} mr={6}>
+				<Box display={{ base: 'none', md: 'block' }} ml={20}>
 					<DesktopNav />
 				</Box>
 				{user ? (
@@ -69,7 +69,6 @@ const AppBar = () => {
 						onClick={() => navigate('/app/dashboard')}
 						variant="primary"
 						size={buttonSize}
-						ml={-10}
 					>
 						Dashboard
 					</Button>

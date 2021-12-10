@@ -1,5 +1,5 @@
-import { Flex, Heading, Icon } from '@chakra-ui/react';
-import { AiOutlineWarning } from 'react-icons/ai';
+import { Flex, Text, Icon } from '@chakra-ui/react';
+import { HiOutlineCode as ICode } from 'react-icons/hi';
 
 import useWindowDimensions from '../hooks/windowDimensions';
 
@@ -17,8 +17,10 @@ const UnderConstruction = () => {
 			align="center"
 			justifyContent="center"
 		>
-			<Heading textAlign="center">Under the construction</Heading>
-			<Icon as={AiOutlineWarning} boxSize={10} color="orange.500" />
+			<Text textAlign="center" fontWeight="bold" fontSize="2xl">
+				Coming soon...
+			</Text>
+			<Icon as={ICode} boxSize={10} color="yellow.400" />
 		</Flex>
 	);
 };

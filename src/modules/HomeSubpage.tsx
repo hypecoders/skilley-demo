@@ -86,7 +86,7 @@ const HomeSubpage = () => (
 						<Feature
 							icon={<Icon as={CheckIcon} color="purple.500" w={5} h={5} />}
 							iconBg={useColorModeValue('purple.100', 'purple.900')}
-							text="Find most suitable developer"
+							text="Find most suitable candidate"
 						/>
 					</Stack>
 				</Stack>
