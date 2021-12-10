@@ -103,7 +103,6 @@ const TabQuestions = ({ defaultQuestionArray }: Props) => {
 				iconSpacing={2}
 				variant="primary"
 				mb={6}
-				disabled // TODO: add functionality
 			>
 				Add Question
 			</Button>

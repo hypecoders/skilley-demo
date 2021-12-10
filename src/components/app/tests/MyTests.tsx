@@ -1,64 +1,92 @@
 import { Button, ButtonGroup, IconButton } from '@chakra-ui/button';
 import { Flex, Text, VStack } from '@chakra-ui/layout';
+import { Center } from '@chakra-ui/react';
 import { Tag, TagLabel } from '@chakra-ui/tag';
+import { query, where, orderBy, getDocs } from 'firebase/firestore';
+import { useState, useEffect } from 'react';
 import { HiOutlineTrash as ITrash } from 'react-icons/hi';
 
+import { TestData } from '../../../common/db';
+import useLoggedInUser from '../../../hooks/useLoggedInUser';
+import { testsCollection } from '../../../utils/firebase';
 import Card from '../../Card';
+import Loading from '../../Loading';
 
-type Test = {
-	title: string;
-	created: string;
-	status: string;
-	tagColor: string;
+const tagColors = {
+	active: 'blue',
+	draft: 'gray',
+	finished: 'green'
 };
 
-const MY_TESTS: Array<Test> = [
-	{
-		title: 'Javascript intermediate level',
-		created: 'December 6, 2021',
-		status: 'DRAFT',
-		tagColor: 'gray'
-	},
-	{
-		title: 'React & Typescript junior',
-		created: 'January 17, 2020',
-		status: 'ACTIVE',
-		tagColor: 'blue'
-	},
-	{
-		title: 'Vacuumlabs Kotlin engineer',
-		created: 'March 11, 2017',
-		status: 'FINISHED',
-		tagColor: 'green'
-	}
-];
+const MyTests = () => {
+	const user = useLoggedInUser();
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [tests, setTests] = useState<TestData[]>([]);
+	const [isError, setIsError] = useState<boolean>(false);
 
-const MyTests = () => (
-	<VStack spacing={10} my={12}>
-		{MY_TESTS.map(test => (
-			<Card key={test.title} bg="white">
-				<Flex justify="space-between" align="center">
-					<VStack spacing={2} align="start">
-						<Tag colorScheme={test.tagColor} borderRadius="full">
-							<TagLabel fontSize="xs" fontWeight="bold">
-								{test.status}
-							</TagLabel>
-						</Tag>
-						<Text fontSize="xl" fontWeight="bold">
-							{test.title}
-						</Text>
-						<Text fontSize="sm" color="gray.400" fontWeight={500}>
-							Created on {test.created}
-						</Text>
-					</VStack>
-					<ButtonGroup variant="ghost" spacing={4}>
-						<Button>Setup</Button>
-						<IconButton icon={<ITrash />} aria-label="Trash button" />
-					</ButtonGroup>
-				</Flex>
-			</Card>
-		))}
-	</VStack>
-);
+	useEffect(() => {
+		const q = query(
+			testsCollection,
+			where('conductor', '==', user?.email),
+			orderBy('created')
+		);
+
+		const fetchData = async () => {
+			try {
+				setIsLoading(true);
+				const querySnapshot = await getDocs(q);
+				querySnapshot.forEach(doc => {
+					setTests(prevTests => [...prevTests, doc.data()]);
+				});
+			} catch (err) {
+				console.error(err);
+				setIsError(true);
+			}
+
+			setIsLoading(false);
+		};
+
+		fetchData();
+	}, []);
+
+	if (isLoading) {
+		return <Loading />;
+	}
+
+	if (isError) {
+		return <Center h="70vh">Error while loading data</Center>;
+	}
+
+	return (
+		<VStack spacing={10} my={12}>
+			{tests.map(test => (
+				<Card key={test.title} bg="white">
+					<Flex justify="space-between" align="center">
+						<VStack spacing={2} align="start">
+							<Tag colorScheme={tagColors[test.status]} borderRadius="full">
+								<TagLabel fontSize="xs" fontWeight="bold">
+									{test.status}
+								</TagLabel>
+							</Tag>
+							<Text fontSize="xl" fontWeight="bold">
+								{test.title}
+							</Text>
+							<Text fontSize="sm" color="gray.400" fontWeight={500}>
+								Created on {test.created.toDate().toLocaleDateString()}
+							</Text>
+						</VStack>
+						<ButtonGroup variant="ghost" spacing={4}>
+							{test.status === 'draft' && <Button>Setup</Button>}
+							{(test.status === 'finished' || test.status === 'active') && (
+								<Button>Results</Button>
+							)}
+							<IconButton icon={<ITrash />} aria-label="Trash button" />
+						</ButtonGroup>
+					</Flex>
+				</Card>
+			))}
+		</VStack>
+	);
+};
 
 export default MyTests;

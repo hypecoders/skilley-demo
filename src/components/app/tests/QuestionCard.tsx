@@ -110,7 +110,9 @@ const QuestionCard = ({ payload }: Props) => {
 						onChange={handleBlur}
 						stackProps={{ spacing: 6 }}
 					>
-						<Radio value="singleLine">Single line</Radio>
+						<Radio defaultChecked value="singleLine">
+							Single line
+						</Radio>
 						<Radio value="multiLine">Multi line</Radio>
 						<Radio value="radioOpt">Radio options</Radio>
 						<Radio value="checkboxOpt">Checkbox options</Radio>

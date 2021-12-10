@@ -79,6 +79,10 @@ export const getRole = (id: string) => getDoc(rolesDoc(id));
 // Test data
 export const testsDoc = (id: string) =>
 	doc(db, 'tests', id) as DocumentReference<TestData>;
+export const testsCollection = collection(
+	db,
+	'tests'
+) as CollectionReference<TestData>;
 
 export const getTestData = (testId: string) => getDoc(testsDoc(testId));
 export const setTestData = (testId: string, payload: TestData) =>
@@ -93,6 +97,7 @@ export const removeQuestionFromTest = (testId: string, question: Question) =>
 	updateDoc(testsDoc(testId), {
 		questions: arrayRemove(question)
 	});
+
 // messages
 export const messageDoc = () =>
 	doc(db, 'messages') as DocumentReference<Message>;
