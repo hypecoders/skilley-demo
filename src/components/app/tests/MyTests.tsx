@@ -57,6 +57,10 @@ const MyTests = () => {
 		return <Center h="70vh">Error while loading data</Center>;
 	}
 
+	if (tests.length === 0) {
+		return <Center h="70vh">No tests</Center>;
+	}
+
 	return (
 		<VStack spacing={10} my={12}>
 			{tests.map(test => (
