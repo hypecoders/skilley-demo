@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
 import { UserData } from '../common/db';
-import Loader from '../components/Loader';
+import Loading from '../components/Loading';
 import useLoggedInUser from '../hooks/useLoggedInUser';
 import Messenger from '../modules/Messenger';
 import SearchUserForMessage from '../modules/SearchUserForMessage';
@@ -28,7 +28,7 @@ const Messages = () => {
 	}, []);
 
 	if (!userData && !isActiveSearch) {
-		return <Loader />;
+		return <Loading />;
 	}
 
 	if (userData && !isActiveSearch) {

@@ -6,7 +6,7 @@ import Leaderboard from '../routes/Leaderboard';
 import AppRoute from '../routes/app/AppRoute';
 import Profile from '../routes/Profile';
 import LandingPage from '../routes/LandingPage';
-// import MyTests from '../routes/app/tests/MyTests';
+import Tests from '../routes/app/tests/Tests';
 import NewTest from '../routes/app/tests/NewTest';
 import PublicPool from '../routes/PublicPool';
 import PrivatePool from '../routes/PrivatePool';
@@ -20,10 +20,6 @@ const Router = () => (
 		<Route path="pool" element={<PublicPool />} />
 		<Route path="leaderboard" element={<Leaderboard />} />
 		<Route path="pricing" element={<Pricing />} />
-		{/* <Route path="invoices" element={<Invoices />}>
-			<Route index element={<p>Select an invoice</p>} />
-			<Route path=":invoiceId" element={<Invoice />} />
-		</Route> */}
 		<Route path="app">
 			<Route path="profile" element={<AppRoute child={<Profile />} />} />
 			<Route
@@ -34,7 +30,7 @@ const Router = () => (
 			<Route path="explore" element={<AppRoute child={<PrivatePool />} />} />
 			<Route path="messages" element={<AppRoute child={<Messages />} />} />
 			<Route path="tests">
-				<Route index element={<AppRoute child={<UnderConstruction />} />} />
+				<Route index element={<AppRoute child={<Tests />} />} />
 				<Route path="new" element={<AppRoute child={<NewTest />} />} />
 			</Route>
 		</Route>

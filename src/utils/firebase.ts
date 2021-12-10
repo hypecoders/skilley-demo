@@ -8,15 +8,19 @@ import {
 	User
 } from 'firebase/auth';
 import {
+	arrayRemove,
+	arrayUnion,
 	collection,
 	CollectionReference,
 	doc,
 	DocumentReference,
 	getDoc,
-	getFirestore
+	getFirestore,
+	setDoc,
+	updateDoc
 } from 'firebase/firestore';
 
-import { Message, RoleData, UserData } from '../common/db';
+import { Question, TestData, Message, RoleData, UserData } from '../common/db';
 
 initializeApp({
 	apiKey: 'AIzaSyAnL_jqyP95HUVN43L5rwGtjmUV3NGfhQg',
@@ -50,6 +54,7 @@ export const onAuthChanged = (callback: (u: User | null) => void) =>
 
 const db = getFirestore();
 
+// User data
 export const usersDataDoc = (uid: string) =>
 	doc(db, 'usersData', uid) as DocumentReference<UserData>;
 
@@ -60,6 +65,7 @@ export const usersDataCollection = collection(
 
 export const getUserData = (id: string) => getDoc(usersDataDoc(id));
 
+// Roles data
 export const rolesDoc = (uid: string) =>
 	doc(db, 'roles', uid) as DocumentReference<RoleData>;
 
@@ -70,6 +76,23 @@ export const rolesCollection = collection(
 
 export const getRole = (id: string) => getDoc(rolesDoc(id));
 
+// Test data
+export const testsDoc = (id: string) =>
+	doc(db, 'tests', id) as DocumentReference<TestData>;
+
+export const getTestData = (testId: string) => getDoc(testsDoc(testId));
+export const setTestData = (testId: string, payload: TestData) =>
+	setDoc(testsDoc(testId), payload);
+export const updateTestData = (testId: string, payload: Partial<TestData>) =>
+	updateDoc(testsDoc(testId), payload);
+export const addQuestionToTest = (testId: string, question: Question) =>
+	updateDoc(testsDoc(testId), {
+		questions: arrayUnion(question)
+	});
+export const removeQuestionFromTest = (testId: string, question: Question) =>
+	updateDoc(testsDoc(testId), {
+		questions: arrayRemove(question)
+	});
 // messages
 export const messageDoc = () =>
 	doc(db, 'messages') as DocumentReference<Message>;

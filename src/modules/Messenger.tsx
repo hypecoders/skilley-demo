@@ -14,7 +14,7 @@ import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 import { Message, UserData } from '../common/db';
-import Loader from '../components/Loader';
+import Loading from '../components/Loading';
 import useWindowDimensions from '../hooks/windowDimensions';
 import { getUserData, messagesCollection } from '../utils/firebase';
 
@@ -131,7 +131,7 @@ const Messenger = ({
 	}
 
 	if (!recipient) {
-		return <Loader />;
+		return <Loading />;
 	}
 
 	return (

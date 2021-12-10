@@ -6,7 +6,15 @@ import {
 } from '@chakra-ui/react';
 
 import colors from './colors';
-import { Button, Checkbox, Input } from './components';
+import {
+	Box,
+	Button,
+	Checkbox,
+	CloseButton,
+	Input,
+	Radio,
+	Tabs
+} from './components';
 
 const theme = extendTheme(
 	{
@@ -18,7 +26,11 @@ const theme = extendTheme(
 		components: {
 			Button,
 			Input,
-			Checkbox
+			Checkbox,
+			Box,
+			Tabs,
+			CloseButton,
+			Radio
 		}
 	},
 	withDefaultColorScheme({
@@ -28,6 +40,10 @@ const theme = extendTheme(
 	withDefaultVariant({
 		variant: 'filled',
 		components: ['Input']
+	}),
+	withDefaultVariant({
+		variant: 'ghost',
+		components: ['CloseButton']
 	})
 );
 

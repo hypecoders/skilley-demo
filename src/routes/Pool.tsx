@@ -14,7 +14,7 @@ import {
 import { ArrowForwardIcon, ArrowBackIcon, EditIcon } from '@chakra-ui/icons';
 
 import { UserData } from '../common/db';
-import Loader from '../components/Loader';
+import Loading from '../components/Loading';
 import { usersDataCollection } from '../utils/firebase';
 import colors from '../utils/theme/colors';
 import SkillPopover from '../components/popover/SkillPopover';
@@ -94,7 +94,7 @@ const Pool = () => {
 	}, [animate, setAnimate]);
 
 	if (isLoading) {
-		return <Loader />;
+		return <Loading />;
 	}
 
 	return (

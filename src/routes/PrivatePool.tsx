@@ -12,7 +12,7 @@ import {
 import { EditIcon } from '@chakra-ui/icons';
 
 import { UserData } from '../common/db';
-import Loader from '../components/Loader';
+import Loading from '../components/Loading';
 import { usersDataCollection } from '../utils/firebase';
 import SmallProfile from '../components/SmallProfile';
 import SkillPopover from '../components/popover/SkillPopover';
@@ -51,7 +51,7 @@ const PrivatePool = () => {
 	}, []);
 
 	if (isLoading) {
-		return <Loader />;
+		return <Loading />;
 	}
 
 	return (

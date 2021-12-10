@@ -64,7 +64,7 @@ const MobileDashboard = ({ onOpen, ...rest }: MobileNavProps) => {
 		<Flex
 			ml={{ base: 0, md: 60 }}
 			px={{ base: 4, md: 4 }}
-			height="20"
+			height="10vh"
 			alignItems="center"
 			bg={useColorModeValue('white', 'gray.900')}
 			borderBottomWidth="1px"
@@ -84,7 +84,7 @@ const MobileDashboard = ({ onOpen, ...rest }: MobileNavProps) => {
 				<Logo />
 			</Box>
 
-			<HStack spacing={{ base: '0', md: '6' }}>
+			<HStack>
 				{/* <IconButton
 					size="lg"
 					variant="ghost"
@@ -94,7 +94,7 @@ const MobileDashboard = ({ onOpen, ...rest }: MobileNavProps) => {
 				<Flex alignItems="center">
 					<Menu>
 						<MenuButton
-							py={2}
+							// py={2}
 							transition="all 0.3s"
 							_focus={{ boxShadow: 'none' }}
 						>

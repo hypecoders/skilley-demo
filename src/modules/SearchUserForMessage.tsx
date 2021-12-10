@@ -3,7 +3,7 @@ import { getDocs } from 'firebase/firestore';
 import { useState, useEffect, useMemo, ChangeEvent } from 'react';
 
 import { UserData } from '../common/db';
-import Loader from '../components/Loader';
+import Loading from '../components/Loading';
 import SmallProfile from '../components/SmallProfile';
 import useLoggedInUser from '../hooks/useLoggedInUser';
 import useWindowDimensions from '../hooks/windowDimensions';
@@ -47,7 +47,7 @@ const SearchUserForMessage = ({ setIsActiveSearch, setRecipient }: Props) => {
 	}, []);
 
 	if (isLoading) {
-		return <Loader />;
+		return <Loading />;
 	}
 
 	return (
