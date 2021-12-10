@@ -65,7 +65,11 @@ const MyTests = () => {
 		<VStack spacing={10} my={12}>
 			{tests.map(test => (
 				<Card key={test.title} bg="white">
-					<Flex justify="space-between" align="center">
+					<Flex
+						justify="space-between"
+						flexDirection={{ base: 'column', md: 'row' }}
+						align={{ base: 'left', md: 'center' }}
+					>
 						<VStack spacing={2} align="start">
 							<Tag colorScheme={tagColors[test.status]} borderRadius="full">
 								<TagLabel fontSize="xs" fontWeight="bold">
@@ -79,7 +83,7 @@ const MyTests = () => {
 								Created on {test.created.toDate().toLocaleDateString()}
 							</Text>
 						</VStack>
-						<ButtonGroup variant="ghost" spacing={4}>
+						<ButtonGroup mt={{ base: 4, md: 0 }} variant="ghost" spacing={4}>
 							{test.status === 'draft' && <Button>Setup</Button>}
 							{(test.status === 'finished' || test.status === 'active') && (
 								<Button>Results</Button>
