@@ -17,7 +17,7 @@ const UnderConstruction = () => {
 			align="center"
 			justifyContent="center"
 		>
-			<Heading>Under the construction</Heading>
+			<Heading textAlign="center">Under the construction</Heading>
 			<Icon as={AiOutlineWarning} boxSize={10} color="orange.500" />
 		</Flex>
 	);
