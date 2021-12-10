@@ -62,7 +62,7 @@ const ProfileForm = () => {
 					</Button>
 				</GridItem>
 				{/* Sign Up Button */}
-				<GridItem my={4}>
+				<GridItem mt={4} mb={8}>
 					<SubmitButton width="full" variant="success">
 						Save changes
 					</SubmitButton>
