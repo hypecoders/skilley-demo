@@ -29,12 +29,12 @@ const Profile = () => {
 		fetchData();
 	}, []);
 
-	{
-		isLoading && <Loading />;
+	if (isLoading) {
+		return <Loading />;
 	}
 
-	{
-		isError && <Center>Error while loading data</Center>;
+	if (isError) {
+		return <Center>Error while loading data</Center>;
 	}
 
 	return (
