@@ -1,13 +1,14 @@
-import { Box, VStack, Text, Divider, Radio } from '@chakra-ui/react';
+import { Box, VStack, Text, Divider, Radio, useToast } from '@chakra-ui/react';
 import {
 	InputControl,
 	RadioGroupControl,
 	TextareaControl
 } from 'formik-chakra-ui';
-import { useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { Question } from '../../../common/db';
+import { toastProps } from '../../../common/defaults';
 import { getFormValues } from '../../../utils';
 import {
 	addQuestionToTest,
@@ -22,17 +23,28 @@ type Props = {
 const QuestionCard = ({ payload }: Props) => {
 	const [searchParams] = useSearchParams();
 	const index = payload.number - 1;
+	const toast = useToast();
 
 	const [question, setQuestion] = useState<Question>(payload);
 
-	const handleBlur = useCallback(async e => {
+	useEffect(() => {
+		const addToDB = async () => {
+			if (payload !== question) {
+				await addQuestionToTest(searchParams.get('id') as never, question);
+			}
+		};
+		addToDB();
+	}, [question]);
+
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const handleBlur = async (e: any) => {
 		const formValues = getFormValues(e.target);
 		const key = Object.keys(formValues)[0];
 		const value = Object.values(formValues)[0];
 		console.log(key, value);
 		try {
 			await removeQuestionFromTest(searchParams.get('id') as never, question);
-			const newQuestion: Question = {
+			setQuestion({
 				number: question.number,
 				title: key.split('].')[1] === 'title' ? value : question.title,
 				description:
@@ -44,13 +56,16 @@ const QuestionCard = ({ payload }: Props) => {
 					value === 'checkboxOpt'
 						? value
 						: question.type
-			};
-			await addQuestionToTest(searchParams.get('id') as never, newQuestion);
-			setQuestion(newQuestion);
+			});
 		} catch (err) {
-			console.error(err);
+			toast({
+				title: 'Fail.',
+				description: 'Unknown error occured.',
+				status: 'error',
+				...toastProps
+			});
 		}
-	}, []);
+	};
 
 	return (
 		<Box
@@ -64,7 +79,7 @@ const QuestionCard = ({ payload }: Props) => {
 			<VStack spacing={6} align="left">
 				<Box>
 					<Text fontSize="lg" fontWeight="bold" color="brand.500">
-						Question {payload.number}
+						Question {question.number}
 					</Text>
 					<Divider mt={2} />
 				</Box>

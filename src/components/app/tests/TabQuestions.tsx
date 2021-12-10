@@ -1,12 +1,14 @@
-import { Box, Button, Divider, Text } from '@chakra-ui/react';
+import { Box, Button, Divider, Text, useToast } from '@chakra-ui/react';
 import { InputControl, TextareaControl } from 'formik-chakra-ui';
 import { useCallback, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { HiOutlinePlus as IAdd } from 'react-icons/hi';
 
 import { Question } from '../../../common/db';
-import { addQuestionToTest } from '../../../utils/firebase';
+import { addQuestionToTest, updateTestData } from '../../../utils/firebase';
 import FormLabel from '../../FormLabel';
+import { getFormValues } from '../../../utils';
+import { toastProps } from '../../../common/defaults';
 
 import QuestionCard from './QuestionCard';
 
@@ -16,6 +18,7 @@ type Props = {
 
 const TabQuestions = ({ defaultQuestionArray }: Props) => {
 	const [searchParams] = useSearchParams();
+	const toast = useToast();
 
 	const [questions, setQuestions] = useState<Question[]>(defaultQuestionArray);
 	const [questionNumber, setQuestionNumber] = useState(2);
@@ -37,10 +40,24 @@ const TabQuestions = ({ defaultQuestionArray }: Props) => {
 		}
 	}, [questions]);
 
-	// TODO:
-	// const handleBlur = useCallback(async e => {
-	// 	const formValues = getFormValues(e.target);
-	// }, []);
+	const handleBlur = useCallback(async e => {
+		const formValues = getFormValues(e.target);
+		const key = Object.keys(formValues)[0];
+		const value = Object.values(formValues)[0];
+		console.log(key, value);
+		try {
+			await updateTestData(searchParams.get('id') as never, {
+				[key]: value
+			});
+		} catch (err) {
+			toast({
+				title: 'Fail.',
+				description: 'Unknown error occured.',
+				status: 'error',
+				...toastProps
+			});
+		}
+	}, []);
 
 	return (
 		<Box>
@@ -59,10 +76,11 @@ const TabQuestions = ({ defaultQuestionArray }: Props) => {
 				mb={12}
 			>
 				<FormLabel>Title</FormLabel>
-				<InputControl name="questionIntro.title" mb={4} />
+				<InputControl name="questionIntro.title" onBlur={handleBlur} mb={4} />
 				<FormLabel>Message text</FormLabel>
 				<TextareaControl
 					name="questionIntro.message"
+					onBlur={handleBlur}
 					textareaProps={{ focusBorderColor: 'brand.500', variant: 'filled' }}
 				/>
 			</Box>
@@ -85,6 +103,7 @@ const TabQuestions = ({ defaultQuestionArray }: Props) => {
 				iconSpacing={2}
 				variant="primary"
 				mb={6}
+				disabled // TODO: add functionality
 			>
 				Add Question
 			</Button>

@@ -43,12 +43,11 @@ const TabMessages = () => {
 
 	const handleBlur = useCallback(async e => {
 		const formValues = getFormValues(e.target);
-		const messageValue = Object.values(formValues)[0];
+		const key = Object.keys(formValues)[0];
+		const value = Object.values(formValues)[0];
 		try {
 			await updateTestData(searchParams.get('id') as never, {
-				[Object.keys(formValues)[0]]: {
-					messageValue
-				}
+				[key]: value
 			});
 		} catch (err) {
 			toast({
