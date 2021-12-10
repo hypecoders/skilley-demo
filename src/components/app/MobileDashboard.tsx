@@ -134,7 +134,6 @@ const MobileDashboard = ({ onOpen, ...rest }: MobileNavProps) => {
 							<MenuItem onClick={() => navigate('/app/profile')}>
 								Profile
 							</MenuItem>
-							<MenuItem>Settings</MenuItem>
 							<MenuDivider />
 							<MenuItem onClick={() => navigate('/')}>To home page</MenuItem>
 							<MenuItem onClick={onSignOut}>Sign out</MenuItem>

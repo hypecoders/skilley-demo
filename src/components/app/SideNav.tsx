@@ -7,6 +7,7 @@ import {
 	HiOutlineClipboardCheck as ITests
 } from 'react-icons/hi';
 import { IconType } from 'react-icons';
+import { AiOutlineMessage } from 'react-icons/ai';
 
 import Logo from '../Logo';
 
@@ -21,6 +22,7 @@ type NavItemProps = {
 const NAV_ITEMS: Array<NavItemProps> = [
 	{ label: 'Dashboard', icon: IDashboard, href: '/app/dashboard' },
 	{ label: 'Hire', icon: IPool, href: '/app/explore' },
+	{ label: 'Messages', icon: AiOutlineMessage, href: '/app/messages' },
 	{ label: 'My Tests', icon: ITests, href: '/app/tests' }
 ];
 
@@ -49,6 +51,7 @@ const SideNav = ({ onClose, ...rest }: SideNavProps) => {
 					icon={navItem.icon}
 					href={navItem.href}
 					isActive={location.pathname === navItem.href}
+					onClick={onClose}
 				>
 					{navItem.label}
 				</SideNavItem>

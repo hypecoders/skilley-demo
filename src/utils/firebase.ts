@@ -20,7 +20,7 @@ import {
 	updateDoc
 } from 'firebase/firestore';
 
-import { Question, RoleData, TestData, UserData } from '../common/db';
+import { Question, TestData, Message, RoleData, UserData } from '../common/db';
 
 initializeApp({
 	apiKey: 'AIzaSyAnL_jqyP95HUVN43L5rwGtjmUV3NGfhQg',
@@ -93,3 +93,11 @@ export const removeQuestionFromTest = (testId: string, question: Question) =>
 	updateDoc(testsDoc(testId), {
 		questions: arrayRemove(question)
 	});
+// messages
+export const messageDoc = () =>
+	doc(db, 'messages') as DocumentReference<Message>;
+
+export const messagesCollection = collection(
+	db,
+	'messages'
+) as CollectionReference<Message>;

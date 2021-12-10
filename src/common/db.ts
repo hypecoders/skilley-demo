@@ -66,3 +66,10 @@ export const Locations = [
 	{ value: 'czechia', label: 'Czech Republic' },
 	{ value: 'remote', label: 'Remote' }
 ];
+
+export type Message = {
+	createdAt: Timestamp;
+	text: string;
+	sender: string;
+	participants: string[];
+};
