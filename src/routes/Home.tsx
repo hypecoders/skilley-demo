@@ -2,7 +2,6 @@ import { Box, Heading, Container, Text, Button, Stack } from '@chakra-ui/react';
 
 import useWindowDimensions from '../hooks/windowDimensions';
 import HomeSubpage from '../modules/HomeSubpage';
-import colors from '../utils/theme/colors';
 
 const Home = () => {
 	const { height } = useWindowDimensions();

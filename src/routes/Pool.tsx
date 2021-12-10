@@ -16,7 +16,6 @@ import { ArrowForwardIcon, ArrowBackIcon, EditIcon } from '@chakra-ui/icons';
 import { UserData } from '../common/db';
 import Loading from '../components/Loading';
 import { usersDataCollection } from '../utils/firebase';
-import colors from '../utils/theme/colors';
 import SkillPopover from '../components/popover/SkillPopover';
 import LocationPopover from '../components/popover/LocationPopover';
 import BigProfileCard from '../components/BigProfileCard';
