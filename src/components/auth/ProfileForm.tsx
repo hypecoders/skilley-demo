@@ -20,19 +20,19 @@ const ProfileForm = () => {
 			<SimpleGrid columns={2} columnGap={3} rowGap={6} w="full">
 				{/* First Name */}
 				<GridItem colSpan={colSpan}>
-					<FormLabel>First Name</FormLabel>
+					<FormLabel required>First Name</FormLabel>
 					<InputControl name="firstName" {...errorMessageProps} />
 				</GridItem>
 
 				{/* Last Name */}
 				<GridItem colSpan={colSpan}>
-					<FormLabel>Last Name</FormLabel>
+					<FormLabel required>Last Name</FormLabel>
 					<InputControl name="lastName" {...errorMessageProps} />
 				</GridItem>
 
 				{/* Email */}
 				<GridItem colSpan={2}>
-					<FormLabel>Email address</FormLabel>
+					<FormLabel required>Email address</FormLabel>
 					<InputControl name="email" {...errorMessageProps} />
 				</GridItem>
 

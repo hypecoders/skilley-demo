@@ -1,7 +1,8 @@
 import { Heading } from '@chakra-ui/layout';
+import { Link } from 'react-router-dom';
 
 const Logo = () => (
-	<Heading fontSize="xl" fontWeight={800}>
+	<Heading as={Link} to="/" fontSize="xl" fontWeight={800}>
 		Skilley
 	</Heading>
 );

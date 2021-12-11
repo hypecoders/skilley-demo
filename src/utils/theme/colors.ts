@@ -1,3 +1,10 @@
+/**
+ *
+ * ⚠️ PLEASE NOTE!
+ * If changing this, also change values in ~/src/common/constants.ts
+ *
+ */
+
 export default {
 	brand: {
 		50: '#f0e9ff',

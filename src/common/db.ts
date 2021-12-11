@@ -1,6 +1,12 @@
 import { Timestamp } from '@firebase/firestore';
 
-/* Users */
+/**
+ *
+ * Firestore DB models
+ *
+ */
+
+// Users
 
 export type UserData = {
 	uid: string;
@@ -13,7 +19,7 @@ export type UserData = {
 	accountType: Role;
 };
 
-/* Roles */
+// Roles
 
 export enum Role {
 	RECRUITER = 'RECRUITER',
@@ -24,7 +30,7 @@ export type RoleData = {
 	accountType: Role;
 };
 
-/* Tests */
+// Tests
 
 export type Question = {
 	number: number;
@@ -66,6 +72,8 @@ export const Locations = [
 	{ value: 'czechia', label: 'Czech Republic' },
 	{ value: 'remote', label: 'Remote' }
 ];
+
+// Messages
 
 export type Message = {
 	createdAt: Timestamp;

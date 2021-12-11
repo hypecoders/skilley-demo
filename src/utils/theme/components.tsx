@@ -1,11 +1,11 @@
 /* ----- CONSTANTS ----- */
 
+import { BRAND_SECONDARY_COLOR } from '../../common/constants';
+
 const brandRing = {
 	_focus: {
-		// ringColor: 'yellow.400',
-		ringColor: 'black',
-		// ringColor: 'brand.300',
-		ring: 3
+		ringColor: BRAND_SECONDARY_COLOR,
+		ring: 2
 	}
 };
 

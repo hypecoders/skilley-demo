@@ -1,7 +1,14 @@
 import { UseToastOptions } from '@chakra-ui/toast';
 import { Timestamp } from '@firebase/firestore';
 
+import { BRAND_PRIMARY_COLOR, BRAND_SECONDARY_COLOR } from './constants';
 import { Question, TestData } from './db';
+
+/**
+ *
+ * Default object values
+ *
+ */
 
 export const RegistrationDefaults = {
 	firstName: '',
@@ -64,7 +71,7 @@ export const TestDefaults: TestData = {
 	questions: [QuestionDefaults],
 	participants: [],
 	branding: {
-		primary: '#5527be',
-		secondary: '#000000'
+		primary: BRAND_PRIMARY_COLOR,
+		secondary: BRAND_SECONDARY_COLOR
 	}
 };

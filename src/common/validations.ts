@@ -1,5 +1,11 @@
 import * as Yup from 'yup';
 
+/**
+ *
+ * Yup form fields validation schemas
+ *
+ */
+
 export const RegistrationSchema = Yup.object().shape({
 	firstName: Yup.string().required('Required'),
 	lastName: Yup.string().required('Required'),
@@ -20,7 +26,7 @@ export const LoginSchema = Yup.object().shape({
 });
 
 export const ProfileSchema = Yup.object().shape({
-	firstName: Yup.string(),
-	lastName: Yup.string(),
-	email: Yup.string().email('Invalid email format')
+	firstName: Yup.string().required('Required'),
+	lastName: Yup.string().required('Required'),
+	email: Yup.string().email('Invalid email format').required('Required')
 });

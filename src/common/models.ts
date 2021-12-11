@@ -3,6 +3,12 @@ import { User } from '@firebase/auth';
 
 import { UserData } from './db';
 
+/**
+ *
+ * Form field models
+ *
+ */
+
 export type RegistrationModel = {
 	firstName: string;
 	lastName: string;
