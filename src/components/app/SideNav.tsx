@@ -4,10 +4,10 @@ import { useLocation } from 'react-router-dom';
 import {
 	HiOutlineChartPie as IDashboard,
 	HiOutlineLightBulb as IPool,
-	HiOutlineClipboardCheck as ITests
+	HiOutlineClipboardCheck as ITests,
+	HiOutlineChat as IChat
 } from 'react-icons/hi';
 import { IconType } from 'react-icons';
-import { AiOutlineMessage } from 'react-icons/ai';
 
 import Logo from '../Logo';
 
@@ -22,7 +22,7 @@ type NavItemProps = {
 const NAV_ITEMS: Array<NavItemProps> = [
 	{ label: 'Dashboard', icon: IDashboard, href: '/app/dashboard' },
 	{ label: 'Hire', icon: IPool, href: '/app/explore' },
-	{ label: 'Messages', icon: AiOutlineMessage, href: '/app/messages' },
+	{ label: 'Messages', icon: IChat, href: '/app/messages' },
 	{ label: 'My Tests', icon: ITests, href: '/app/tests' }
 ];
 

@@ -12,6 +12,8 @@ export type UserData = {
 	uid: string;
 	firstName: string;
 	lastName: string;
+	bio?: string;
+	position?: string;
 	locations: string[];
 	skills: string[];
 	icon?: string;

@@ -14,7 +14,6 @@ const Home = () => {
 					textAlign="center"
 					spacing={{ base: 8, md: 14 }}
 					justifyContent="center"
-					// py={{ base: 20, md: 36 }}
 				>
 					<Heading
 						fontWeight={600}

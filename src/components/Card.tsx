@@ -3,13 +3,12 @@ import { FC } from 'react';
 
 const Card: FC<BoxProps> = ({ children, ...rest }) => (
 	<Box
-		border="2px"
+		border="8px"
 		borderColor="gray.50"
-		boxShadow="md"
-		rounded="xl"
+		boxShadow="2xl"
+		rounded="2xl"
 		w="full"
-		px={10}
-		py={6}
+		p={6}
 		{...rest}
 	>
 		{children}

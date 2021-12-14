@@ -1,86 +1,39 @@
-/* ----- CONSTANTS ----- */
-
 import { BRAND_SECONDARY_COLOR } from '../../common/constants';
-
-const brandRing = {
-	_focus: {
-		ringColor: BRAND_SECONDARY_COLOR,
-		ring: 2
-	}
-};
-
-/* ----- EXPORTS ----- */
 
 export const Button = {
 	variants: {
 		primary: {
 			color: 'white',
 			bg: 'brand.500',
-			_hover: {
-				backgroundColor: 'brand.400'
-			},
-			...brandRing, // _focus
-			_active: {
-				backgroundColor: 'brand.300'
-			}
+			_hover: { bg: 'brand.400' },
+			_focus: { ringColor: BRAND_SECONDARY_COLOR, ring: 2 },
+			_active: { bg: 'brand.300' }
 		},
 		link: {
 			color: 'gray.700',
-			backgroundColor: 'white',
-			_hover: {
-				textDecoration: 'underline'
-			},
-			_focus: {
-				ring: 0
-			}
+			bg: 'none',
+			_hover: { textDecoration: 'underline' },
+			_focus: { ring: 0 }
 		},
 		ghost: {
-			backgroundColor: 'gray.100',
-			_hover: {
-				backgroundColor: 'gray.200'
-			},
-			_focus: {
-				ring: 0
-			},
-			_active: {
-				backgroundColor: 'gray.300'
-			}
-		},
-		text: {
-			color: 'gray.600',
-			backgroundColor: 'white',
-			_hover: {
-				color: 'gray.500'
-			},
-			_focus: {
-				ring: 0
-			}
+			bg: 'gray.100',
+			_hover: { bg: 'gray.200' },
+			_focus: { ring: 0 },
+			_active: { bg: 'gray.300' }
 		},
 		success: {
 			color: 'white',
-			backgroundColor: 'green.500',
-			_hover: {
-				backgroundColor: 'green.400'
-			},
-			_active: {
-				backgroundColor: 'green.300'
-			},
-			_focus: {
-				ring: 0
-			}
+			bg: 'green.500',
+			_hover: { bg: 'green.400' },
+			_focus: { ring: 0 },
+			_active: { bg: 'green.300' }
 		},
 		error: {
 			color: 'white',
-			backgroundColor: 'red.500',
-			_hover: {
-				backgroundColor: 'red.400'
-			},
-			_active: {
-				backgroundColor: 'red.300'
-			},
-			_focus: {
-				ring: 0
-			}
+			bg: 'red.500',
+			_hover: { bg: 'red.400' },
+			_focus: { ring: 0 },
+			_active: { bg: 'red.300' }
 		},
 		skill: {
 			maxW: 'sm',
@@ -94,6 +47,14 @@ export const Button = {
 			_focus: {
 				ring: 0
 			}
+		},
+		checkbox: {
+			_hover: { color: 'gray.700' },
+			_focus: { ring: 0 }
+		},
+		blank: {
+			bg: 'none',
+			_focus: { ring: 0 }
 		}
 	}
 };
