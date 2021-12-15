@@ -23,7 +23,7 @@ import {
 import { Locations, UserData } from '../common/db';
 import skillList from '../common/skillList';
 import Loading from '../components/Loading';
-import PoolProfileCard from '../components/PoolProfileCard';
+import PoolProfileCard from '../components/cards/PoolProfileCard';
 import { usersDataCollection } from '../utils/firebase';
 
 const Pool = () => {

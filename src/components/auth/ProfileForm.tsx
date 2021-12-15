@@ -11,7 +11,7 @@ import {
 
 import { errorMessageProps } from '../../common/defaults';
 import FormLabel from '../FormLabel';
-import Skills from '../Skills';
+import Skills from '../app/profile/Skills';
 
 const ProfileForm = () => {
 	const colSpan = useBreakpointValue({ base: 2, md: 1 });

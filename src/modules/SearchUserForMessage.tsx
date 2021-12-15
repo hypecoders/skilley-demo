@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, ChangeEvent } from 'react';
 
 import { UserData } from '../common/db';
 import Loading from '../components/Loading';
-import SmallProfile from '../components/SmallProfile';
+import SmallProfileCard from '../components/cards/SmallProfileCard';
 import useLoggedInUser from '../hooks/useLoggedInUser';
 import useWindowDimensions from '../hooks/windowDimensions';
 import { usersDataCollection } from '../utils/firebase';
@@ -67,7 +67,7 @@ const SearchUserForMessage = ({ setIsActiveSearch, setRecipient }: Props) => {
 				{filtredUsers.map(
 					filtredUser =>
 						filtredUser.uid !== user?.uid && (
-							<SmallProfile
+							<SmallProfileCard
 								key={filtredUser.uid}
 								user={filtredUser}
 								setIsActiveSearch={setIsActiveSearch}

@@ -8,7 +8,7 @@ import {
 	Wrap
 } from '@chakra-ui/react';
 
-import { UserData, Locations } from '../common/db';
+import { UserData, Locations } from '../../common/db';
 
 type Props = {
 	user: UserData;
@@ -18,7 +18,7 @@ type Props = {
 	setRecipient?: React.Dispatch<React.SetStateAction<UserData | undefined>>;
 };
 
-const SmallProfile = ({
+const SmallProfileCard = ({
 	user,
 	selectedUsers,
 	setSelectedUsers,
@@ -128,4 +128,4 @@ const SmallProfile = ({
 	</Wrap>
 );
 
-export default SmallProfile;
+export default SmallProfileCard;

@@ -13,8 +13,8 @@ import {
 	HiOutlineLockClosed as ILock
 } from 'react-icons/hi';
 
-import { UserData } from '../common/db';
-import { toastProps } from '../common/defaults';
+import { UserData } from '../../common/db';
+import { toastProps } from '../../common/defaults';
 
 import Card from './Card';
 

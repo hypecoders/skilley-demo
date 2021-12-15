@@ -3,9 +3,8 @@ import { Box, Wrap, WrapItem } from '@chakra-ui/layout';
 import { Button } from '@chakra-ui/react';
 import { CheckboxControl } from 'formik-chakra-ui';
 
-import skillList from '../common/skillList';
-
-import FormLabel from './FormLabel';
+import skillList from '../../../common/skillList';
+import FormLabel from '../../FormLabel';
 
 const Skills = () => {
 	const [selectedOptions, setSelectedOptions] = useState<string[]>([]);

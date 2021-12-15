@@ -9,7 +9,7 @@ import { HiOutlineTrash as ITrash } from 'react-icons/hi';
 import { TestData } from '../../../common/db';
 import useLoggedInUser from '../../../hooks/useLoggedInUser';
 import { testsCollection } from '../../../utils/firebase';
-import Card from '../../Card';
+import Card from '../../cards/Card';
 import Loading from '../../Loading';
 
 const tagColors = {
