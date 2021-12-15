@@ -1,12 +1,12 @@
 import { Box } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
-import { UserData } from '../common/db';
-import Loading from '../components/Loading';
-import useLoggedInUser from '../hooks/useLoggedInUser';
-import Messenger from '../modules/Messenger';
-import SearchUserForMessage from '../modules/SearchUserForMessage';
-import { getUserData } from '../utils/firebase';
+import { UserData } from '../../common/db';
+import Loading from '../../components/Loading';
+import useLoggedInUser from '../../hooks/useLoggedInUser';
+import Messenger from '../../modules/Messenger';
+import SearchUserForMessage from '../../modules/SearchUserForMessage';
+import { getUserData } from '../../utils/firebase';
 
 const Messages = () => {
 	const [isActiveSearch, setIsActiveSearch] = useState<boolean>(false);

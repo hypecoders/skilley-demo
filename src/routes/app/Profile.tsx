@@ -1,11 +1,11 @@
 import { Center, Flex, Heading, useToast } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 
-import { getUserData } from '../utils/firebase';
-import useLoggedInUser from '../hooks/useLoggedInUser';
-import { UserData } from '../common/db';
-import Loading from '../components/Loading';
-import { ProfileController } from '../components/hoc/ProfileController';
+import { getUserData } from '../../utils/firebase';
+import useLoggedInUser from '../../hooks/useLoggedInUser';
+import { UserData } from '../../common/db';
+import Loading from '../../components/Loading';
+import { ProfileController } from '../../components/hoc/ProfileController';
 
 const Profile = () => {
 	const [userData, setUserData] = useState<UserData>();

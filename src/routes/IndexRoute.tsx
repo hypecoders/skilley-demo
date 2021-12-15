@@ -1,14 +1,13 @@
 import AppBar from '../components/landing-page/AppBar';
 import Footer from '../components/landing-page/Footer';
+import LandingPage from '../modules/LandingPage';
 
-import Home from './Home';
-
-const LandingPage = () => (
+const IndexRoute = () => (
 	<>
 		<AppBar />
-		<Home />
+		<LandingPage />
 		<Footer />
 	</>
 );
 
-export default LandingPage;
+export default IndexRoute;

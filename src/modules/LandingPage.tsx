@@ -1,9 +1,10 @@
 import { Box, Heading, Container, Text, Button, Stack } from '@chakra-ui/react';
 
 import useWindowDimensions from '../hooks/windowDimensions';
-import HomeSubpage from '../modules/HomeSubpage';
 
-const Home = () => {
+import HomeSubpage from './HomeSubpage';
+
+const LandingPage = () => {
 	const { height } = useWindowDimensions();
 
 	return (
@@ -56,4 +57,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default LandingPage;

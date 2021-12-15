@@ -31,7 +31,11 @@ initializeApp({
 	appId: '1:393123766788:web:18f79565d1f04059d50b51'
 });
 
-/* AUTHENTICATION */
+/**
+ *
+ * Authentication
+ *
+ */
 
 const auth = getAuth();
 
@@ -50,11 +54,16 @@ export const signOut = () => authSignOut(auth);
 export const onAuthChanged = (callback: (u: User | null) => void) =>
 	onAuthStateChanged(auth, callback);
 
-/* FIRESTORE */
+/**
+ *
+ * Firestore
+ *
+ */
 
 const db = getFirestore();
 
-// User data
+/* Users */
+
 export const usersDataDoc = (uid: string) =>
 	doc(db, 'usersData', uid) as DocumentReference<UserData>;
 
@@ -65,7 +74,8 @@ export const usersDataCollection = collection(
 
 export const getUserData = (id: string) => getDoc(usersDataDoc(id));
 
-// Roles data
+/* Roles */
+
 export const rolesDoc = (uid: string) =>
 	doc(db, 'roles', uid) as DocumentReference<RoleData>;
 
@@ -76,7 +86,8 @@ export const rolesCollection = collection(
 
 export const getRole = (id: string) => getDoc(rolesDoc(id));
 
-// Test data
+/* Tests */
+
 export const testsDoc = (id: string) =>
 	doc(db, 'tests', id) as DocumentReference<TestData>;
 export const testsCollection = collection(
@@ -98,7 +109,8 @@ export const removeQuestionFromTest = (testId: string, question: Question) =>
 		questions: arrayRemove(question)
 	});
 
-// messages
+/* Messages */
+
 export const messageDoc = () =>
 	doc(db, 'messages') as DocumentReference<Message>;
 

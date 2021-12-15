@@ -11,18 +11,18 @@ import {
 } from '@chakra-ui/react';
 import { EditIcon } from '@chakra-ui/icons';
 
-import { UserData } from '../common/db';
-import Loading from '../components/Loading';
-import { usersDataCollection } from '../utils/firebase';
-import SmallProfile from '../components/SmallProfile';
-import SkillPopover from '../components/popover/SkillPopover';
-import LocationPopover from '../components/popover/LocationPopover';
-import UserWrap from '../components/Wraps/UserWrap';
-import LocationWrap from '../components/Wraps/LocationWrap';
-import SkillWrap from '../components/Wraps/SkillWrap';
-import UserPopover from '../components/popover/UserPopover';
+import { UserData } from '../../common/db';
+import Loading from '../../components/Loading';
+import { usersDataCollection } from '../../utils/firebase';
+import SmallProfile from '../../components/SmallProfile';
+import SkillPopover from '../../components/popover/SkillPopover';
+import LocationPopover from '../../components/popover/LocationPopover';
+import UserWrap from '../../components/Wraps/UserWrap';
+import LocationWrap from '../../components/Wraps/LocationWrap';
+import SkillWrap from '../../components/Wraps/SkillWrap';
+import UserPopover from '../../components/popover/UserPopover';
 
-const PrivatePool = () => {
+const Recruit = () => {
 	const [users, setUsers] = useState<UserData[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [selectedUsers, setSelectedUsers] = useState<UserData[]>([]);
@@ -125,4 +125,4 @@ const PrivatePool = () => {
 	);
 };
 
-export default PrivatePool;
+export default Recruit;

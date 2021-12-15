@@ -1,24 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Dashboard from '../routes/Dashboard';
 import Error404 from '../routes/Error404';
-import Leaderboard from '../routes/Leaderboard';
 import AppRoute from '../routes/app/AppRoute';
-import Profile from '../routes/Profile';
-import LandingPage from '../routes/LandingPage';
+import Profile from '../routes/app/Profile';
+import IndexRoute from '../routes/IndexRoute';
 import Tests from '../routes/app/tests/Tests';
 import NewTest from '../routes/app/tests/NewTest';
-import PublicPool from '../routes/PublicPool';
-import PrivatePool from '../routes/PrivatePool';
-import Messages from '../routes/Messages';
+import TalentPool from '../routes/TalentPool';
+import Recruit from '../routes/app/Recruit';
+import Messages from '../routes/app/Messages';
 import Pricing from '../routes/Pricing';
 import UnderConstruction from '../modules/UnderConstruction';
 
 const Router = () => (
 	<Routes>
-		<Route path="/" element={<LandingPage />} />
-		<Route path="pool" element={<PublicPool />} />
-		<Route path="leaderboard" element={<Leaderboard />} />
+		<Route path="/" element={<IndexRoute />} />
+		<Route path="explore" element={<TalentPool />} />
 		<Route path="pricing" element={<Pricing />} />
 		<Route path="app">
 			<Route path="profile" element={<AppRoute child={<Profile />} />} />
@@ -26,9 +23,8 @@ const Router = () => (
 				path="dashboard"
 				element={<AppRoute child={<UnderConstruction />} />}
 			/>
-			<Route path="trending" element={<AppRoute child={<Dashboard />} />} />
-			<Route path="explore" element={<AppRoute child={<PrivatePool />} />} />
-			<Route path="messages" element={<AppRoute child={<Messages />} />} />
+			<Route path="recruit" element={<AppRoute child={<Recruit />} />} />
+			<Route path="messenger" element={<AppRoute child={<Messages />} />} />
 			<Route path="tests">
 				<Route index element={<AppRoute child={<Tests />} />} />
 				<Route path="new" element={<AppRoute child={<NewTest />} />} />

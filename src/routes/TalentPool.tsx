@@ -1,9 +1,8 @@
 import AppBar from '../components/landing-page/AppBar';
 import Footer from '../components/landing-page/Footer';
+import Pool from '../modules/Pool';
 
-import Pool from './Pool';
-
-const PublicPool = () => (
+const TalentPool = () => (
 	<>
 		<AppBar />
 		<Pool />
@@ -11,4 +10,4 @@ const PublicPool = () => (
 	</>
 );
 
-export default PublicPool;
+export default TalentPool;

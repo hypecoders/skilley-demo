@@ -1,3 +1,5 @@
-const Error404 = () => <p>404 | Not Found</p>;
+import { Center } from '@chakra-ui/react';
+
+const Error404 = () => <Center>404 | Not Found</Center>;
 
 export default Error404;

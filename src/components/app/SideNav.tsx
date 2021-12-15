@@ -21,8 +21,8 @@ type NavItemProps = {
 
 const NAV_ITEMS: Array<NavItemProps> = [
 	{ label: 'Dashboard', icon: IDashboard, href: '/app/dashboard' },
-	{ label: 'Hire', icon: IPool, href: '/app/explore' },
-	{ label: 'Messages', icon: IChat, href: '/app/messages' },
+	{ label: 'Recruit', icon: IPool, href: '/app/recruit' },
+	{ label: 'Messenger', icon: IChat, href: '/app/messenger' },
 	{ label: 'My Tests', icon: ITests, href: '/app/tests' }
 ];
 
