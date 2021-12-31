@@ -6,7 +6,6 @@ import { Role } from "../../common/db";
 import { RegistrationDefaults, toastProps } from "../../common/defaults";
 import { RegistrationModel } from "../../common/models";
 import { RegistrationSchema } from "../../common/validations";
-import { FBErrorCode, useFirebaseError } from "../../hooks/useFirebaseError";
 import { rolesDoc, signUp, usersDataDoc } from "../../utils/firebase";
 import RegisterForm from "../auth/RegisterForm";
 

@@ -29,7 +29,6 @@ export const UserProvider: FC = ({ children }) => {
   // Setup onAuthChanged once when component is mounted
   useEffect(() => {
     onAuthChanged((u) => {
-      console.log(user);
       if (u) {
         localStorage.setItem("user", "t");
         update(u);
@@ -38,7 +37,7 @@ export const UserProvider: FC = ({ children }) => {
         setUser(undefined);
       }
     });
-  });
+  }, []);
 
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };

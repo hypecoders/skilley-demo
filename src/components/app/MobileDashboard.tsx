@@ -1,148 +1,148 @@
 import {
-	IconButton,
-	Avatar,
-	Box,
-	Flex,
-	HStack,
-	VStack,
-	useColorModeValue,
-	Text,
-	FlexProps,
-	Menu,
-	MenuButton,
-	MenuDivider,
-	MenuItem,
-	MenuList,
-	useToast
-} from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
-import { FiMenu, FiChevronDown } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
+  IconButton,
+  Avatar,
+  Box,
+  Flex,
+  HStack,
+  VStack,
+  useColorModeValue,
+  Text,
+  FlexProps,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+  useToast,
+} from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import { FiMenu, FiChevronDown } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
-import { Role, UserData } from '../../common/db';
-import { toastProps } from '../../common/defaults';
-import useLoggedInUser from '../../hooks/useLoggedInUser';
-import { getUserData, signOut } from '../../utils/firebase';
-import Logo from '../Logo';
+import { Role, UserData } from "../../common/db";
+import { toastProps } from "../../common/defaults";
+import useLoggedInUser from "../../hooks/useLoggedInUser";
+import { getUserData, signOut } from "../../utils/firebase";
+import Logo from "../Logo";
 
 type MobileNavProps = {
-	onOpen: () => void;
+  onOpen: () => void;
 } & FlexProps;
 
 // TODO: destructure to components
 
 const MobileDashboard = ({ onOpen, ...rest }: MobileNavProps) => {
-	const user = useLoggedInUser();
-	const toast = useToast();
-	const navigate = useNavigate();
+  const user = useLoggedInUser();
+  const toast = useToast();
+  const navigate = useNavigate();
 
-	const [userData, setuserData] = useState<UserData>();
+  const [userData, setuserData] = useState<UserData>();
 
-	useEffect(() => {
-		const fetchData = async () => {
-			if (user) {
-				const userData = await getUserData(user?.uid.toString());
-				if (userData.exists()) {
-					setuserData(userData.data());
-				}
-			}
-		};
-		fetchData();
-	}, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (user) {
+        const userData = await getUserData(user?.uid.toString());
+        if (userData.exists()) {
+          setuserData(userData.data());
+        }
+      }
+    };
+    fetchData();
+  }, [user]);
 
-	const onSignOut = () => {
-		navigate('/');
-		signOut();
-		toast({
-			title: 'Logged out.',
-			status: 'success',
-			...toastProps
-		});
-	};
+  const onSignOut = () => {
+    navigate("/");
+    signOut();
+    toast({
+      title: "Logged out.",
+      status: "success",
+      ...toastProps,
+    });
+  };
 
-	return (
-		<Flex
-			ml={{ base: 0, md: 60 }}
-			px={{ base: 4, md: 4 }}
-			height="10vh"
-			alignItems="center"
-			bg={useColorModeValue('white', 'gray.900')}
-			borderBottomWidth="1px"
-			borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-			justifyContent={{ base: 'space-between', md: 'flex-end' }}
-			{...rest}
-		>
-			<IconButton
-				display={{ base: 'flex', md: 'none' }}
-				onClick={onOpen}
-				variant="outline"
-				aria-label="open menu"
-				icon={<FiMenu />}
-			/>
+  return (
+    <Flex
+      ml={{ base: 0, md: 60 }}
+      px={{ base: 4, md: 4 }}
+      height="10vh"
+      alignItems="center"
+      bg={useColorModeValue("white", "gray.900")}
+      borderBottomWidth="1px"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      justifyContent={{ base: "space-between", md: "flex-end" }}
+      {...rest}
+    >
+      <IconButton
+        display={{ base: "flex", md: "none" }}
+        onClick={onOpen}
+        variant="outline"
+        aria-label="open menu"
+        icon={<FiMenu />}
+      />
 
-			<Box display={{ base: 'flex', md: 'none' }}>
-				<Logo />
-			</Box>
+      <Box display={{ base: "flex", md: "none" }}>
+        <Logo />
+      </Box>
 
-			<HStack>
-				{/* <IconButton
+      <HStack>
+        {/* <IconButton
 					size="lg"
 					variant="ghost"
 					aria-label="open menu"
 					icon={<FiBell />}
 				/> */}
-				<Flex alignItems="center">
-					<Menu>
-						<MenuButton
-							// py={2}
-							transition="all 0.3s"
-							_focus={{ boxShadow: 'none' }}
-						>
-							<HStack>
-								{/* user */}
-								<Avatar
-									bg="brand.300"
-									size="sm"
-									name={userData?.firstName}
-									src={userData?.icon}
-								/>
-								<VStack
-									display={{ base: 'none', md: 'flex' }}
-									alignItems="flex-start"
-									spacing="1px"
-									ml="2"
-								>
-									<Text fontSize="sm">
-										{user?.displayName}
-										{user?.email}
-									</Text>
-									<Text fontSize="xs" color="gray.600">
-										{user?.accountType === Role.APPLICANT
-											? 'Applicant'
-											: 'Recruiter'}
-									</Text>
-								</VStack>
-								<Box display={{ base: 'none', md: 'flex' }}>
-									<FiChevronDown />
-								</Box>
-							</HStack>
-						</MenuButton>
-						<MenuList
-							bg={useColorModeValue('white', 'gray.900')}
-							borderColor={useColorModeValue('gray.200', 'gray.700')}
-						>
-							<MenuItem onClick={() => navigate('/app/profile')}>
-								Profile
-							</MenuItem>
-							<MenuDivider />
-							<MenuItem onClick={() => navigate('/')}>To home page</MenuItem>
-							<MenuItem onClick={onSignOut}>Sign out</MenuItem>
-						</MenuList>
-					</Menu>
-				</Flex>
-			</HStack>
-		</Flex>
-	);
+        <Flex alignItems="center">
+          <Menu>
+            <MenuButton
+              // py={2}
+              transition="all 0.3s"
+              _focus={{ boxShadow: "none" }}
+            >
+              <HStack>
+                {/* user */}
+                <Avatar
+                  bg="brand.300"
+                  size="sm"
+                  name={userData?.firstName}
+                  src={userData?.icon}
+                />
+                <VStack
+                  display={{ base: "none", md: "flex" }}
+                  alignItems="flex-start"
+                  spacing="1px"
+                  ml="2"
+                >
+                  <Text fontSize="sm">
+                    {user?.displayName}
+                    {user?.email}
+                  </Text>
+                  <Text fontSize="xs" color="gray.600">
+                    {user?.accountType === Role.APPLICANT
+                      ? "Applicant"
+                      : "Recruiter"}
+                  </Text>
+                </VStack>
+                <Box display={{ base: "none", md: "flex" }}>
+                  <FiChevronDown />
+                </Box>
+              </HStack>
+            </MenuButton>
+            <MenuList
+              bg={useColorModeValue("white", "gray.900")}
+              borderColor={useColorModeValue("gray.200", "gray.700")}
+            >
+              <MenuItem onClick={() => navigate("/app/profile")}>
+                Profile
+              </MenuItem>
+              <MenuDivider />
+              <MenuItem onClick={() => navigate("/")}>To home page</MenuItem>
+              <MenuItem onClick={onSignOut}>Sign out</MenuItem>
+            </MenuList>
+          </Menu>
+        </Flex>
+      </HStack>
+    </Flex>
+  );
 };
 
 export default MobileDashboard;

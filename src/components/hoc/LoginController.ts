@@ -4,7 +4,6 @@ import { withFormik } from "formik";
 import { LoginDefaults, toastProps } from "../../common/defaults";
 import { LoginModel } from "../../common/models";
 import { LoginSchema } from "../../common/validations";
-import { FBErrorCode, useFirebaseError } from "../../hooks/useFirebaseError";
 import { signIn } from "../../utils/firebase";
 import LoginForm from "../auth/LoginForm";
 
