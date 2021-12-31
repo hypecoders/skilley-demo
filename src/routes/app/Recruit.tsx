@@ -17,9 +17,9 @@ import { usersDataCollection } from '../../utils/firebase';
 import SmallProfileCard from '../../components/cards/SmallProfileCard';
 import SkillPopover from '../../components/popover/SkillPopover';
 import LocationPopover from '../../components/popover/LocationPopover';
-import UserWrap from '../../components/wraps/UserWrap';
-import LocationWrap from '../../components/wraps/LocationWrap';
-import SkillWrap from '../../components/wraps/SkillWrap';
+import UserWrap from '../../components/Wraps/UserWrap';
+import LocationWrap from '../../components/Wraps/LocationWrap';
+import SkillWrap from '../../components/Wraps/SkillWrap';
 import UserPopover from '../../components/popover/UserPopover';
 
 const Recruit = () => {

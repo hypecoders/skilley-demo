@@ -39,9 +39,11 @@
 		"lint": "eslint \"./src/**/*.{ts,tsx}\" && prettier \"./src/**/*.{ts,tsx}\" --check"
 	},
 	"eslintConfig": {
-		"extends": "haaxor1689s-config"
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
 	},
-	"prettier": "prettier-config-haaxor1689s-config",
 	"browserslist": {
 		"production": [
 			">0.2%",
