@@ -30,10 +30,10 @@ export const UserProvider: FC = ({ children }) => {
   useEffect(() => {
     onAuthChanged((u) => {
       if (u) {
-        localStorage.setItem("user", "t");
+        localStorage.setItem("u", "1");
         update(u);
       } else {
-        localStorage.removeItem("user");
+        localStorage.removeItem("u");
         setUser(undefined);
       }
     });

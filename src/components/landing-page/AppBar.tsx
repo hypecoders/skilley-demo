@@ -8,6 +8,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import useLoggedInUser from "../../hooks/useLoggedInUser";
 
 import LoginModal from "../auth/LoginModal";
 import RegisterModal from "../auth/RegisterModal";
@@ -41,7 +42,8 @@ const AppBar = () => {
   const navigate = useNavigate();
   const { isOpen, onToggle } = useDisclosure();
   const buttonSize = useBreakpointValue({ base: "sm", md: "md" });
-  const isUser = localStorage.getItem("user");
+  const isUser =
+    useLoggedInUser() !== undefined || localStorage.getItem("u") !== null;
 
   return (
     <Box>
